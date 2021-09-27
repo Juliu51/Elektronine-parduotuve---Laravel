@@ -21,10 +21,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light text-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light text-white shadow bg-body rounded">
             <div class="container">
-                <a class="navbar-brand text-danger" href="{{ url('/') }}">
-                    {{ config('app.name', 'MegaShop') }}
+                <a class="navbar-brand text-danger logo" href="{{ url('/') }}">
+                   MegaShop
                 </a>
                 <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon bg-white"></span>
@@ -156,5 +156,16 @@
             @yield('content')
         </main>
     </div>
+    <footer class="text-center text-white fixed-bottom footer shadow bg-body rounded">
+  <!-- Grid container -->
+  
+  <!-- Copyright -->
+  <div class="text-center p-3">
+    © 2020 Copyright:
+    <a class="text-white" href="{{ route('category.index') }}">MegaShop.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
 </body>
+
 </html>
