@@ -23,7 +23,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light text-white shadow bg-body rounded">
             <div class="container">
-                <a class="navbar-brand text-danger logo" href="{{ url('/') }}">
+                <a class="navbar-brand text-danger logo" href="{{ route('category.index') }}">
                    MegaShop
                 </a>
                 <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
