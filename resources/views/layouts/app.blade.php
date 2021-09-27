@@ -161,7 +161,7 @@
   
   <!-- Copyright -->
   <div class="text-center p-3">
-    © 2020 Copyright:
+    © 2021 Copyright:
     <a class="text-white" href="{{ route('category.index') }}">MegaShop.com</a>
   </div>
   <!-- Copyright -->
