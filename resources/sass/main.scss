@@ -1,3 +1,10 @@
 body {
-    background-color: red;
+    background-color: $gray-900;
+    $gradient: linear-gradient(180deg, rgba($white, .15), rgba($white, 0));
 }
+.navbar {
+    background-color: $gray-800;
+    border-bottom: rgba(255, 255, 255, 0.13) 0.1px solid;
+}
+
+

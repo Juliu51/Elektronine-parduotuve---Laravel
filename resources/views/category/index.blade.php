@@ -1,9 +1,6 @@
-
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
-
 @if(Auth::user()->isAdmin())
 <div class="row justify-content-center">
     <div class="col-md-8">
@@ -48,15 +45,11 @@
         <div class="card-body">
         <table class="table table-striped">
             <tbody>
-
-
-
-
-
             @foreach ($categories as $category)
             <tr>
               <td class=""> <a href="{{route('category.map',$category)}}"> {{$category->name}}</a></td>
               {{-- <td class="align-middle text-center">{{$parameter->data_type}}</td> --}}
+              @if(Auth::user()->isAdmin())
               <td class="align-middle text-center">
                 <a class="btn btn-primary" href="{{route('category.edit',[$category])}}">EDIT</a>
                 <form style="display: inline-block" method="POST" action="{{route('category.destroy', $category)}}">
@@ -64,11 +57,13 @@
                     <button class="btn btn-danger" type="submit">DELETE</button>
                   </form>
               </td>
+              @endif
             </tr>
             @endforeach
             </tbody>
           </table>
         </div>
+
         <div class="card-body">
         <table class="table table-striped">
             <tbody>
