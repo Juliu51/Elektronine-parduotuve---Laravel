@@ -37,7 +37,11 @@
                 HOME
             @endif
              @foreach ($chain as $item)
-                 <a href="{{route('category.map',$item)}}"> {{$item->name}} ></a>
+             @if(next($chain))
+                  <a class="chain" href="{{route('category.map',$item)}}"> {{$item->name}} ></a>
+                 @else
+                  <a class="chain chain-last" href="{{route('category.map',$item)}}"> {{$item->name}} </a>
+                 @endif
              @endforeach
          </div>
 
