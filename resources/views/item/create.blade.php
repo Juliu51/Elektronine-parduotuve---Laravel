@@ -15,7 +15,7 @@
                   </div>
                   <div class="form-group">
                       <label>Prekes gamintojas</label>
-                      <input type="number" name="manufacturer"  class="form-control" placeholder="Gamintojas">
+                      <input type="text" name="manufacturer"  class="form-control" placeholder="Gamintojas">
                   </div>
                   <div class="form-group">
                       <label>Prekes Kaina</label>

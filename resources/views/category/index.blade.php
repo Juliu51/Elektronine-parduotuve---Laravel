@@ -73,7 +73,7 @@
               @if (isset($item))
             @foreach ($items as $item)
             <div class="kortele">
-              <a href="{{route('item.show',[$item])}}">
+              <a href="{{route('item.show',[$item, $chain[count($chain)-1]])}}">
             <div class="korteleHead">
              @if(count($item->photos) > 0)
                <div class="imgHead">
@@ -82,7 +82,7 @@
                  <div class="imgHead"> <img class="smallImg" src="{{asset("/images/icons/Default.jpg")}}" alt=""> </div>
                  @endif
                  <p class="d-flex justify-content-center">{{$item->name}}</p>
-                 <p class=" p1">Gamintojas: {{$item->manafaturer}}</p>
+                 <p class=" p1">Gamintojas: {{$item->manufacturer}}</p>
                  <p class=" p1">Likutis: {{$item->quantity}} 🚚</p>
                  <p class="d-flex justify-content-center" style="color:white;">Kaina: {{$item->price}} €</p>
                  @if(!Auth::user()->isAdmin())

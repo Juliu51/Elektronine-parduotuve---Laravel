@@ -94,9 +94,9 @@ class ItemController extends Controller
      * @param  \App\Models\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function show(Item $item)
+    public function show(Item $item, Category $category)
     {
-      return view('item.show', ['item' => $item]);
+      return view('item.show', ['item' => $item, 'category' => $category]);
     }
 
     /**

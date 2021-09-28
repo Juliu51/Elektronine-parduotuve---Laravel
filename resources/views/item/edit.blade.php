@@ -13,6 +13,10 @@
                       <input type="text" name="name"  class="form-control" value="{{$item->name}}">
                   </div>
                   <div class="form-group">
+                      <label>Prekes gamintojas</label>
+                      <input type="text" name="manufacturer"  class="form-control" placeholder="{{$item->manufacturer}}">
+                  </div>
+                  <div class="form-group">
                       <label>Prekes Kaina</label>
                       <input type="number" name="price"  class="form-control" placeholder="Eur" value="{{$item->price}}">
 
