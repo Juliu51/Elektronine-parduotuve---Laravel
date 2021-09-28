@@ -12,4 +12,10 @@ class Item extends Model
     {
         return $this->belongsToMany(Parameter::class, 'item_parameters')->withPivot('data');
     }
+    public function photos()
+    {
+        
+        return $this->hasMany(Photo::class);
+        
+    }
 }

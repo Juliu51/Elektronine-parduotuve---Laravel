@@ -6,7 +6,10 @@ use App\Models\Category;
 use App\Models\CategoryParameter;
 use App\Models\Item;
 use App\Models\Parameter;
+use App\Models\Photo;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManagerStatic as Image;
+use Str;
 
 class CategoryController extends Controller
 {
