@@ -5,13 +5,6 @@
     <input type="hidden" name="item_id" value="{{$item->id}}">
 <input type="hidden" name="category_id" value="{{$category->id}}">  
 <a href="{{route('category.map',$category)}}" class="text-sm text-gray-700 dark:text-gray-500 underline">Gryzti į sąrašą</a>
-@foreach ($chain as $item)
-             @if(next($chain))
-                  <a class="chain" href="{{route('category.map',$item)}}"> {{$item->name}} ></a>
-                 @else
-                  <a class="chain chain-last" href="{{route('category.map',$item)}}"> {{$item->name}} </a>
-                 @endif
-             @endforeach
 <div class="PrekeContainer">
     <div class="photo">
     @if(count($item->photos) > 0)
@@ -20,7 +13,9 @@
                  @else
                  <div class="imgHead"> <img class="bigImg" src="{{asset("/images/icons/Default.jpg")}}" alt=""> </div>
                  @endif
+                 
     </div>
+    
     <div class="info">
     <p class="pName  text-white">{{$item->name}}</p>
 <p class="justify-content-right text-white">Gamintojas: <span style="color:red;">{{$item->manufacturer}}</span></p>

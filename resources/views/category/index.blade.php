@@ -69,7 +69,6 @@
              @endforeach
          </div>
 <div class="korteles">
-
               @if (isset($item))
             @foreach ($items as $item)
             <div class="kortele">

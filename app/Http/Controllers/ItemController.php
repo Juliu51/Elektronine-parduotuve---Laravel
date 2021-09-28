@@ -96,6 +96,7 @@ class ItemController extends Controller
      */
     public function show(Item $item, Category $category)
     {
+       
       return view('item.show', ['item' => $item, 'category' => $category]);
     }
 
