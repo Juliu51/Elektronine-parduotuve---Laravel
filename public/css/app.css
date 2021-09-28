@@ -10207,9 +10207,40 @@ body,
 }
 
 .Aprasymas {
+  font-family: "Hind", sans-serif;
   background-color: #495057;
   padding: 15px;
   border-top: 1px solid rgba(255, 255, 255, 0.329);
+}
+.Aprasymas .para {
+  font-family: "Hind", sans-serif;
+  border-top: 1px solid rgba(255, 255, 255, 0.329);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.329);
+  font-size: 26px;
+}
+.Aprasymas .app {
+  font-family: "Hind", sans-serif;
+  border-top: 1px solid rgba(255, 255, 255, 0.329);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.329);
+  font-size: 26px;
+}
+.Aprasymas .parametrai {
+  width: 100%;
+  font-weight: 900;
+  margin-top: 45px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: "Hind", sans-serif;
+}
+.Aprasymas .parametrai .parametrai1 {
+  margin-left: 70%;
+  background-color: #495057;
+  font-size: 16px;
+}
+.Aprasymas .parametrai .parametrai2 {
+  font-family: "Hind", sans-serif;
+  background-color: #495057;
+  font-size: 18px;
 }
 
 .kortele:hover {

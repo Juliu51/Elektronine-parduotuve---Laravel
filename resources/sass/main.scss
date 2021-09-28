@@ -1,19 +1,17 @@
 .logo {
-    font-family: 'Stick No Bills', sans-serif;
+    font-family: "Stick No Bills", sans-serif;
     font-size: 28px;
 }
 .navName {
-    font-family: 'Hind', sans-serif;
-    color:white;
+    font-family: "Hind", sans-serif;
+    color: white;
     text-decoration: none;
     font-size: 16px;
-    
 }
 body,
 .footer-1 {
     background-color: $gray-900;
-    $gradient: linear-gradient(180deg, rgba($white, .15), rgba($white, 0));
-   
+    $gradient: linear-gradient(180deg, rgba($white, 0.15), rgba($white, 0));
 }
 .navbar {
     background-color: $gray-800;
@@ -37,175 +35,203 @@ body,
         display: block;
         .kategorija {
             margin-bottom: 15px;
-            font-size:20px;
-            color:white;
+            font-size: 20px;
+            color: white;
         }
     }
 }
-.findCategory 
-{
+.findCategory {
     background-color: $gray-800;
-    font-family: 'Hind', sans-serif;
-.CategoryName{
-    color:white;
-    text-decoration: none;
-    font-size: 18px;
- 
+    font-family: "Hind", sans-serif;
+    .CategoryName {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+    }
+    .CategoryAll {
+        background-color: $gray-600;
+        .CategoryAlltext {
+            color: $gray-500;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 20px;
+        }
+    }
 }
-.CategoryAll{
-    background-color: $gray-600;
-.CategoryAlltext{
-    color:$gray-500;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 20px;
-    
-}}}
-.Perkamiausios{
-    color:white;
-     background-color: $gray-800;
-     font-family: 'Hind', sans-serif;
+.Perkamiausios {
+    color: white;
+    background-color: $gray-800;
+    font-family: "Hind", sans-serif;
     width: 100%;
-    height:100%;
-    
+    height: 100%;
 }
 .headas {
     border-bottom: 1px solid rgba(255, 255, 255, 0.329);
-.CatUniqName {
-    font-family: 'Hind', sans-serif;
-    text-shadow: 2px 2px rgb(77, 71, 71);
-    color:$gray-500;
-    font-size: 56px;
-    text-align: center;
-    padding-top: 15px;
-}}
-.chainHead{
+    .CatUniqName {
+        font-family: "Hind", sans-serif;
+        text-shadow: 2px 2px rgb(77, 71, 71);
+        color: $gray-500;
+        font-size: 56px;
+        text-align: center;
+        padding-top: 15px;
+    }
+}
+.chainHead {
     margin: 15px 0px;
     padding-left: 15px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.329);
-.chain {
-    font-family: 'Hind', sans-serif;
-    color:white;
-    text-decoration: none;
-    font-size: 20px;
-}}
+    .chain {
+        font-family: "Hind", sans-serif;
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+    }
+}
 .korteles {
     display: grid;
-    grid-template-columns: 1fr  1fr;
+    grid-template-columns: 1fr 1fr;
     width: 100%;
-    @media (max-width: 992px) { grid-template-columns: 1fr;}
+    @media (max-width: 992px) {
+        grid-template-columns: 1fr;
+    }
     .kortele {
         width: 98%;
         background-color: $gray-700;
         display: flex;
         justify-content: center;
         align-items: center;
-    margin: 1%;
-   
-    
-    a{
-    text-decoration: none;
-   }
-   .migtukai {
-       padding-bottom: 45px;
-   }
-    .korteleHead{
-        width: 100%;
-        .imgHead{
-            display: flex;
-        justify-content: center;
-        align-items: center;
-        .smallImg {
-            width: 75%;
-            height: 220px;
-            margin:15px 0;
-            @media (max-width: 992px) {height: 420px;}
-        }}
-        p{  font-family: 'Hind', sans-serif;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            text-shadow: 2px 2px rgb(77, 71, 71);
-            color:$gray-500;
-            font-size: 25px;
-        }
-        .p1 {
-            font-family: 'Hind', sans-serif;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            text-shadow: 2px 2px rgb(77, 71, 71);
-            color:white;
-            font-size: 18px;
-            padding-left: 45px;
-        }
+        margin: 1%;
 
-}}}
+        a {
+            text-decoration: none;
+        }
+        .migtukai {
+            padding-bottom: 45px;
+        }
+        .korteleHead {
+            width: 100%;
+            .imgHead {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .smallImg {
+                    width: 75%;
+                    height: 220px;
+                    margin: 15px 0;
+                    @media (max-width: 992px) {
+                        height: 420px;
+                    }
+                }
+            }
+            p {
+                font-family: "Hind", sans-serif;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                text-shadow: 2px 2px rgb(77, 71, 71);
+                color: $gray-500;
+                font-size: 25px;
+            }
+            .p1 {
+                font-family: "Hind", sans-serif;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                text-shadow: 2px 2px rgb(77, 71, 71);
+                color: white;
+                font-size: 18px;
+                padding-left: 45px;
+            }
+        }
+    }
+}
 
 .PrekeContainer {
     margin-top: 45px;
     display: grid;
-    grid-template-columns: 2fr  1fr;
+    grid-template-columns: 2fr 1fr;
     width: 100%;
-    font-family: 'Hind', sans-serif;
-    @media (max-width: 992px) { grid-template-columns: 1fr;}
+    font-family: "Hind", sans-serif;
+    @media (max-width: 992px) {
+        grid-template-columns: 1fr;
+    }
     .info {
-        padding:25px 15px;
+        padding: 25px 15px;
         width: 100%;
         background-color: $gray-700;
         display: inline-block;
         p {
-            font-size:20px;
+            font-size: 20px;
         }
-    .pName {
-        font-size: 50px;
+        .pName {
+            font-size: 50px;
+        }
+        .veiksmai {
+            margin-top: 50%;
+            @media (max-width: 992px) {
+                margin-top: 1%;
+            }
+        }
     }
-    .veiksmai {
-        margin-top: 50%;
-        @media (max-width: 992px) { margin-top: 1%;}
+    .photo {
+        width: 100%;
+        background-color: $gray-700;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        .bigImg {
+            width: 100%;
+            height: 100%;
+        }
     }
-}
-.photo {
-    width:100%;
-    background-color: $gray-700;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   padding: 15px;
-.bigImg{
-    width: 100%;
-    height: 100%;
-    
-}
-}
 }
 .Aprasymas {
+    font-family: "Hind", sans-serif;
     background-color: $gray-700;
     padding: 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.329);
+    .para {
+        font-family: "Hind", sans-serif;
+        border-top: 1px solid rgba(255, 255, 255, 0.329);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.329);
+        font-size: 26px;
+    }
+    .app {
+        font-family: "Hind", sans-serif;
+        border-top: 1px solid rgba(255, 255, 255, 0.329);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.329);
+        font-size: 26px;
+    }
+    .parametrai {
+        width: 100%;
+        font-weight: 900;
+        margin-top: 45px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        font-family: "Hind", sans-serif;
+        .parametrai1 {
+            margin-left: 70%;
+            background-color: $gray-700;
+            font-size: 16px;
+        }
+        .parametrai2 {
+            font-family: "Hind", sans-serif;
+            background-color: $gray-700;
+            font-size: 18px;
+        }
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .kortele:hover {
-    box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16), 0 3px 6px rgba(255, 255, 255, 0.23);
+    box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16),
+        0 3px 6px rgba(255, 255, 255, 0.23);
 }
 .CategoryAll:hover {
-    box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16), 0 3px 6px rgba(255, 255, 255, 0.23);
+    box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16),
+        0 3px 6px rgba(255, 255, 255, 0.23);
 }
 .CategoryNameH:hover {
-    box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16), 0 3px 6px rgba(255, 255, 255, 0.23);
+    box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16),
+        0 3px 6px rgba(255, 255, 255, 0.23);
 }
