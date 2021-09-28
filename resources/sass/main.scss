@@ -90,18 +90,22 @@ body,
     font-size: 20px;
 }}
 .korteles {
+    display: grid;
+    grid-template-columns: 1fr  1fr;
     width: 100%;
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @media (max-width: 992px) { grid-template-columns: 1fr;}
     .kortele {
+        width: 98%;
         background-color: $gray-700;
         display: flex;
         justify-content: center;
         align-items: center;
-    width: 50%;
-    margin: 5px;
+    margin: 1%;
+   
+    
+    a{
+    text-decoration: none;
+   }
    .migtukai {
        padding-bottom: 45px;
    }
@@ -115,6 +119,7 @@ body,
             width: 75%;
             height: 220px;
             margin:15px 0;
+            @media (max-width: 992px) {height: 420px;}
         }}
         p{  font-family: 'Hind', sans-serif;
             align-items: center;
@@ -136,3 +141,13 @@ body,
         }
 
 }}}
+
+.kortele:hover {
+    box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16), 0 3px 6px rgba(255, 255, 255, 0.23);
+}
+.CategoryAll:hover {
+    box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16), 0 3px 6px rgba(255, 255, 255, 0.23);
+}
+.CategoryNameH:hover {
+    box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16), 0 3px 6px rgba(255, 255, 255, 0.23);
+}

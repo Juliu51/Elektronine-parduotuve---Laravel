@@ -10100,18 +10100,25 @@ body,
 }
 
 .korteles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+}
+@media (max-width: 992px) {
+  .korteles {
+    grid-template-columns: 1fr;
+  }
 }
 .korteles .kortele {
+  width: 98%;
   background-color: #495057;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  margin: 5px;
+  margin: 1%;
+}
+.korteles .kortele a {
+  text-decoration: none;
 }
 .korteles .kortele .migtukai {
   padding-bottom: 45px;
@@ -10128,6 +10135,11 @@ body,
   width: 75%;
   height: 220px;
   margin: 15px 0;
+}
+@media (max-width: 992px) {
+  .korteles .kortele .korteleHead .imgHead .smallImg {
+    height: 420px;
+  }
 }
 .korteles .kortele .korteleHead p {
   font-family: "Hind", sans-serif;
@@ -10147,4 +10159,16 @@ body,
   color: white;
   font-size: 18px;
   padding-left: 45px;
+}
+
+.kortele:hover {
+  box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16), 0 3px 6px rgba(255, 255, 255, 0.23);
+}
+
+.CategoryAll:hover {
+  box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16), 0 3px 6px rgba(255, 255, 255, 0.23);
+}
+
+.CategoryNameH:hover {
+  box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16), 0 3px 6px rgba(255, 255, 255, 0.23);
 }

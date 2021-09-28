@@ -31,9 +31,8 @@
             <tbody>
               <td class="CategoryAll"><a class="CategoryAlltext" href="{{route('category.index')}}">Visos Kategorijos</a></td>
             @foreach ($categories as $category)
-            <tr>
+            <tr class="CategoryNameH">
               <td > <a class="CategoryName" href="{{route('category.map',$category)}}"> {{$category->name}}</a></td>
-              {{-- <td class="align-middle text-center">{{$parameter->data_type}}</td> --}}
               @if(Auth::user()->isAdmin())
               <td class="align-middle text-center">
                 <a class="btn btn-primary" href="{{route('category.edit',[$category])}}">EDIT</a>
@@ -73,7 +72,8 @@
 
               @if (isset($item))
             @foreach ($items as $item)
-            <div class="kortele ">
+            <div class="kortele">
+              <a href="{{route('item.show',[$item])}}">
             <div class="korteleHead">
              @if(count($item->photos) > 0)
                <div class="imgHead">
@@ -82,8 +82,8 @@
                  <div class="imgHead"> <img class="smallImg" src="{{asset("/images/icons/Default.jpg")}}" alt=""> </div>
                  @endif
                  <p class="d-flex justify-content-center">{{$item->name}}</p>
-                 <p class=" p1">Gamintojas: {{$item->manafaturer}}€</p>
-                 <p class=" p1">Likutis: {{$item->quantity}}€</p>
+                 <p class=" p1">Gamintojas: {{$item->manafaturer}}</p>
+                 <p class=" p1">Likutis: {{$item->quantity}} 🚚</p>
                  <p class="d-flex justify-content-center" style="color:white;">Kaina: {{$item->price}} €</p>
                  @if(!Auth::user()->isAdmin())
                  <div class=" migtukai align-middle text-center">
@@ -92,23 +92,25 @@
                  @endif
                  @if(Auth::user()->isAdmin())
               <div class=" migtukai align-middle text-center">
-              <a class="btn btn-secondary" href="{{route('item.show',[$item])}}">SHOW</a>
                 <a class="btn btn-primary" href="{{route('item.edit',[$item,$chain[count($chain)-1]])}}">EDIT</a>
                 <form style="display: inline-block" method="POST" action="{{route('item.destroy', [$item])}}">
                     @csrf
                     <button class="btn btn-danger" type="submit">DELETE</button>
-                  </form>         
+                  </form>
       </div>
           @endif
-         
+
           </div>
 </div>
             @endforeach
 </div>
 </div>
+
         @endif
         @endif
-</div> 
+       
+</div>
+</a>
 </div>
 
 @endsection
