@@ -10161,6 +10161,57 @@ body,
   padding-left: 45px;
 }
 
+.PrekeContainer {
+  margin-top: 45px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  width: 100%;
+  font-family: "Hind", sans-serif;
+}
+@media (max-width: 992px) {
+  .PrekeContainer {
+    grid-template-columns: 1fr;
+  }
+}
+.PrekeContainer .info {
+  padding: 25px 15px;
+  width: 100%;
+  background-color: #495057;
+  display: inline-block;
+}
+.PrekeContainer .info p {
+  font-size: 20px;
+}
+.PrekeContainer .info .pName {
+  font-size: 50px;
+}
+.PrekeContainer .info .veiksmai {
+  margin-top: 50%;
+}
+@media (max-width: 992px) {
+  .PrekeContainer .info .veiksmai {
+    margin-top: 1%;
+  }
+}
+.PrekeContainer .photo {
+  width: 100%;
+  background-color: #495057;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+.PrekeContainer .photo .bigImg {
+  width: 100%;
+  height: 100%;
+}
+
+.Aprasymas {
+  background-color: #495057;
+  padding: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.329);
+}
+
 .kortele:hover {
   box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16), 0 3px 6px rgba(255, 255, 255, 0.23);
 }
