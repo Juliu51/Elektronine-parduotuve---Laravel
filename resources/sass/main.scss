@@ -1,5 +1,13 @@
 .logo {
-    font-weight: 900px; 
+    font-family: 'Stick No Bills', sans-serif;
+    font-size: 28px;
+}
+.navName {
+    font-family: 'Hind', sans-serif;
+    color:white;
+    text-decoration: none;
+    font-size: 16px;
+    
 }
 body,
 .footer-1 {
@@ -16,4 +24,115 @@ body,
     border-top: rgba(255, 255, 255, 0.13) 0.1px solid;
 }
 
+.panel {
+    margin-bottom: 5px;
+    .admin_head {
+        background-color: $gray-800;
+        color: white;
+        border-bottom: rgba(255, 255, 255, 0.13) 0.1px solid;
+    }
+    .admin_body {
+        background-color: $gray-700;
+        color: white;
+        display: block;
+        .kategorija {
+            margin-bottom: 15px;
+            font-size:20px;
+            color:white;
+        }
+    }
+}
+.findCategory 
+{
+    background-color: $gray-800;
+    font-family: 'Hind', sans-serif;
+.CategoryName{
+    color:white;
+    text-decoration: none;
+    font-size: 18px;
+ 
+}
+.CategoryAll{
+    background-color: $gray-600;
+.CategoryAlltext{
+    color:$gray-500;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    
+}}}
+.Perkamiausios{
+    color:white;
+     background-color: $gray-800;
+     font-family: 'Hind', sans-serif;
+    width: 100%;
+    height:100%;
+    
+}
+.headas {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.329);
+.CatUniqName {
+    font-family: 'Hind', sans-serif;
+    text-shadow: 2px 2px rgb(77, 71, 71);
+    color:$gray-500;
+    font-size: 56px;
+    text-align: center;
+    padding-top: 15px;
+}}
+.chainHead{
+    margin: 15px 0px;
+    padding-left: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.329);
+.chain {
+    font-family: 'Hind', sans-serif;
+    color:white;
+    text-decoration: none;
+    font-size: 20px;
+}}
+.korteles {
+    width: 100%;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .kortele {
+        background-color: $gray-700;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    width: 50%;
+    margin: 5px;
+   .migtukai {
+       padding-bottom: 45px;
+   }
+    .korteleHead{
+        width: 100%;
+        .imgHead{
+            display: flex;
+        justify-content: center;
+        align-items: center;
+        .smallImg {
+            width: 75%;
+            height: 220px;
+            margin:15px 0;
+        }}
+        p{  font-family: 'Hind', sans-serif;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            text-shadow: 2px 2px rgb(77, 71, 71);
+            color:$gray-500;
+            font-size: 25px;
+        }
+        .p1 {
+            font-family: 'Hind', sans-serif;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            text-shadow: 2px 2px rgb(77, 71, 71);
+            color:white;
+            font-size: 18px;
+            padding-left: 45px;
+        }
 
+}}}

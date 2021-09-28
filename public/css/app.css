@@ -10003,7 +10003,15 @@ h3 {
   }
 }
 .logo {
-  font-weight: 900px;
+  font-family: "Stick No Bills", sans-serif;
+  font-size: 28px;
+}
+
+.navName {
+  font-family: "Hind", sans-serif;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
 }
 
 body,
@@ -10019,4 +10027,124 @@ body,
 .footer {
   background-color: #343a40;
   border-top: rgba(255, 255, 255, 0.13) 0.1px solid;
+}
+
+.panel {
+  margin-bottom: 5px;
+}
+.panel .admin_head {
+  background-color: #343a40;
+  color: white;
+  border-bottom: rgba(255, 255, 255, 0.13) 0.1px solid;
+}
+.panel .admin_body {
+  background-color: #495057;
+  color: white;
+  display: block;
+}
+.panel .admin_body .kategorija {
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: white;
+}
+
+.findCategory {
+  background-color: #343a40;
+  font-family: "Hind", sans-serif;
+}
+.findCategory .CategoryName {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+.findCategory .CategoryAll {
+  background-color: #6c757d;
+}
+.findCategory .CategoryAll .CategoryAlltext {
+  color: #adb5bd;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.Perkamiausios {
+  color: white;
+  background-color: #343a40;
+  font-family: "Hind", sans-serif;
+  width: 100%;
+  height: 100%;
+}
+
+.headas {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.329);
+}
+.headas .CatUniqName {
+  font-family: "Hind", sans-serif;
+  text-shadow: 2px 2px #4d4747;
+  color: #adb5bd;
+  font-size: 56px;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.chainHead {
+  margin: 15px 0px;
+  padding-left: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.329);
+}
+.chainHead .chain {
+  font-family: "Hind", sans-serif;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.korteles {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.korteles .kortele {
+  background-color: #495057;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin: 5px;
+}
+.korteles .kortele .migtukai {
+  padding-bottom: 45px;
+}
+.korteles .kortele .korteleHead {
+  width: 100%;
+}
+.korteles .kortele .korteleHead .imgHead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.korteles .kortele .korteleHead .imgHead .smallImg {
+  width: 75%;
+  height: 220px;
+  margin: 15px 0;
+}
+.korteles .kortele .korteleHead p {
+  font-family: "Hind", sans-serif;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-shadow: 2px 2px #4d4747;
+  color: #adb5bd;
+  font-size: 25px;
+}
+.korteles .kortele .korteleHead .p1 {
+  font-family: "Hind", sans-serif;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-shadow: 2px 2px #4d4747;
+  color: white;
+  font-size: 18px;
+  padding-left: 45px;
 }

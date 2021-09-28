@@ -15,7 +15,11 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind&family=Stick+No+Bills:wght@700&display=swap" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -40,32 +44,32 @@
                     <ul class="navbar-nav ml-auto text-white">
                         <!-- Authentication Links -->
                         <li class="nav-item text-white">
-                            <a class="nav-link text-white" href="{{ route('category.index') }}">Pagrindinis</a>
+                            <a class="nav-link text-white navName" href="{{ route('category.index') }}">Pagrindinis</a>
                         </li>
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link text-white navName" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link text-white navName" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                         @if(Auth::user()->isAdmin())
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white navName" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                Prekės
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item "  href="{{ route('category.index') }}" >
+                                <a class="dropdown-item navName "  href="{{ route('category.index') }}" >
                                     Prekių sąrašas
                                 </a>
-                                <a class="dropdown-item "  href="{{ route('category.index') }}" >
+                                <a class="dropdown-item  navName"  href="{{ route('category.index') }}" >
                                    Pridėti prekę
                                 </a>
                             </div>
@@ -74,22 +78,22 @@
 
                         </li>
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown navName" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                Parametrai
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item "  href="{{ route('parameter.index') }}" >
+                                <a class="dropdown-item navName"  href="{{ route('parameter.index') }}" >
                                     Parametrų sąrašas
                                 </a>
-                                <a class="dropdown-item "  href="{{ route('parameter.create') }}" >
+                                <a class="dropdown-item navName"  href="{{ route('parameter.create') }}" >
                                    Pridėti parametrą
                                 </a>
                             </div>
 
 @else 
 <li class="nav-item text-white">
-                            <a class="nav-link text-white"  href="{{ route('category.index') }}" >
+                            <a class="nav-link text-white navName"  href="{{ route('category.index') }}" >
                                     Prekės
                                 </a>
                         </li>
