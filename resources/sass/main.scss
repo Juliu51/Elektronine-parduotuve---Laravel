@@ -87,7 +87,6 @@ body,
     .chain {
         font-family: "Hind", sans-serif;
         color: white;
-        text-decoration: none;
         font-size: 20px;
     }
 }
@@ -238,4 +237,7 @@ body,
 .CategoryNameH:hover {
     box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16),
         0 3px 6px rgba(255, 255, 255, 0.23);
+}
+.chain:hover {
+    text-decoration: underline;
 }

@@ -91,7 +91,7 @@
                                 </a>
                             </div>
 
-@else 
+@else
 <li class="nav-item text-white">
                             <a class="nav-link text-white navName"  href="{{ route('category.index') }}" >
                                     Prekės
@@ -99,6 +99,9 @@
                         </li>
 
 @endif
+                        <li class="nav-item text-white">
+                            <a class="nav-link text-white navName" href="{{ route('category.index') }}">Kontaktai</a>
+                        </li>
                         </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -117,6 +120,9 @@
                                     </form>
                                 </div>
                             </li>
+                            <li class="nav-item text-white">
+                            <a class="nav-link text-white navName" href="{{ route('category.index') }}">🛒</a>
+                        </li>
                         @endguest
                     </ul>
                 </div>
@@ -147,7 +153,7 @@
                                        {{session()->get('success_message')}}
                                    </div>
                                @endif
-                              
+
                                @if(session()->has('info_message'))
                                    <div class="alert alert-info" role="alert">
                                        {{session()->get('info_message')}}
@@ -162,7 +168,7 @@
     </div>
     <footer class="text-center text-white fixed-bottom footer shadow bg-body rounded">
   <!-- Grid container -->
-  
+
   <!-- Copyright -->
   <div class="text-center p-3">
     © 2021 Copyright:
