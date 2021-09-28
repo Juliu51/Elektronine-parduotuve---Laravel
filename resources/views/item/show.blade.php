@@ -9,13 +9,30 @@
     <div class="photo">
     @if(count($item->photos) > 0)
                <div class="imgHead">
-                 <img class="bigImg" src="{{asset("/images/items/big/".$item->photos[0]->name)}}" alt=""></div>
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="d-block w-100" src="{{asset("/images/items/big/".$item->photos[0]->name)}}" alt="First slide">
+                      </div>
+                      @foreach ($item->photos as $photo)
+                      <div class="carousel-item">
+                        <img class="d-block w-100" src="{{asset("/images/items/big/".$photo->name)}}" alt="Second slide">
+                      </div>
+@endforeach
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div></div></div>
                  @else
                  <div class="imgHead"> <img class="bigImg" src="{{asset("/images/icons/Default.jpg")}}" alt=""> </div>
                  @endif
-                 
-    </div>
-    
+                
+            </div>
     <div class="info">
     <p class="pName  text-white">{{$item->name}}</p>
 <p class="justify-content-right text-white">Gamintojas: <span style="color:red;">{{$item->manufacturer}}</span></p>
@@ -26,7 +43,6 @@
     </div>
     </div>
 </div>
-
 <div class="Aprasymas">
     <p class=" app text-white">Aprasymas</p>
     <p class="text-white" style="font-size:16px;"><span style="font-weight: 900;">{{$item->name}}</span> - {{$item->description}}</p>
@@ -41,4 +57,5 @@
 </div>
 </div>
 </div>
+
 @endsection

@@ -45,12 +45,26 @@
             </tr>
             @endforeach
             </tbody>
-          </table>
+          </table> 
     </div>
   </div>
 <div class="col-12 col-lg-9">
 @if (count($chain)== 0)
-<div class="Perkamiausios">asdasd</div>
+<div class="Perkamiausios">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="../public/images/front/n1.jpg" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="../public/images/front/n2.jpg." alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="../public/images/front/n3.jpg" alt="Third slide">
+      </div>
+    </div>
+  </div>
+</div>
 @else
 <div class="Perkamiausios">
   <div class="headas">
