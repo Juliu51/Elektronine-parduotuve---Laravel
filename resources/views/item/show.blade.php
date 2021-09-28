@@ -44,9 +44,9 @@
     </div>
 </div>
 <div class="Aprasymas">
-    <p class=" app text-white">Aprasymas</p>
+    <p class=" app text-white justify-content-center">Aprasymas</p>
     <p class="text-white" style="font-size:16px;"><span style="font-weight: 900;">{{$item->name}}</span> - {{$item->description}}</p>
-    <p class=" para text-white">Parametrai</p>
+    <p class=" para text-white justify-content-center">Parametrai</p>
     <div class="parametrai">
     @foreach ($item->parameters as $param)
     <div class="parametrai1  text-white"><p>{{$param->title}}:</p></div>

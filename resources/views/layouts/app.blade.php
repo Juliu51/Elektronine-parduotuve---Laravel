@@ -3,15 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'MegaShop') }}</title>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -52,7 +48,6 @@
                                     <a class="nav-link text-white navName" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link text-white navName" href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -64,7 +59,6 @@
                             <a id="navbarDropdown" class="nav-link dropdown-toggle text-white navName" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                Prekės
                             </a>
-
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item navName "  href="{{ route('category.index') }}" >
                                     Prekių sąrašas
@@ -73,15 +67,11 @@
                                    Pridėti prekę
                                 </a>
                             </div>
-
-
-
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown navName" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                Parametrai
                             </a>
-
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item navName"  href="{{ route('parameter.index') }}" >
                                     Parametrų sąrašas
@@ -90,24 +80,21 @@
                                    Pridėti parametrą
                                 </a>
                             </div>
-
 @else
 <li class="nav-item text-white">
                             <a class="nav-link text-white navName"  href="{{ route('category.index') }}" >
                                     Prekės
                                 </a>
                         </li>
-
 @endif
                         <li class="nav-item text-white">
-                            <a class="nav-link text-white navName" href="{{ route('category.index') }}">Kontaktai</a>
+                            <a class="nav-link text-white navName" href="">Kontaktai</a>
                         </li>
                         </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -121,14 +108,13 @@
                                 </div>
                             </li>
                             <li class="nav-item text-white">
-                            <a class="nav-link text-white navName" href="{{ route('category.index') }}">🛒</a>
+                            <a class="nav-link text-white navName" href="">🛒</a>
                         </li>
                         @endguest
                     </ul>
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
         <div class="container">
                        <div class="row justify-content-center">
@@ -153,7 +139,6 @@
                                        {{session()->get('success_message')}}
                                    </div>
                                @endif
-
                                @if(session()->has('info_message'))
                                    <div class="alert alert-info" role="alert">
                                        {{session()->get('info_message')}}
@@ -162,13 +147,11 @@
                            </div>
                        </div>
                    </div>
-
             @yield('content')
         </main>
     </div>
     <footer class="text-center text-white fixed-bottom footer shadow bg-body rounded">
   <!-- Grid container -->
-
   <!-- Copyright -->
   <div class="text-center p-3">
     © 2021 Copyright:
