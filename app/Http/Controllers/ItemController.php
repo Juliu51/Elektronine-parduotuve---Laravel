@@ -68,7 +68,7 @@ class ItemController extends Controller
                     $img = Image::make($photo); //bitu kratinys, be jokios info
                     $fileName = Str::random(5).'.jpg';// random sugalvojau
                     $folder = public_path('images/items');     
-                    $img->resize(1200, null, function ($constraint) {
+                    $img->resize(1200, 1200, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                     $img->save($folder.'/big/'.$fileName, 80, 'jpg');
