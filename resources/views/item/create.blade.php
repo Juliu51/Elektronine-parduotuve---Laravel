@@ -32,6 +32,11 @@
                       <input type="number" name="quantity"  class="form-control" placeholder="Vnt.">
                   </div>
                   <div class="form-group">
+                      <label>Rodyti preke</label>
+                      <input type="checkbox" name="show" >
+
+                  </div>
+                  <div class="form-group">
                       <label>Prekes nuolaida</label>
                       <input type="number" name="discount"  class="form-control" placeholder="0%">
                   </div>

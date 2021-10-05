@@ -10244,6 +10244,14 @@ body,
   font-size: 18px;
 }
 
+.disabled {
+  opacity: 0.3;
+}
+
+.avoid-cliks {
+  pointer-events: none;
+}
+
 .kortele:hover {
   box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16), 0 3px 6px rgba(255, 255, 255, 0.23);
 }

@@ -42,7 +42,6 @@ class CategoryController extends Controller
             }
         }
         $_SESSION['chain'] = $tmpSs;
-        // dd($_SESSION['chain'][0]->id);
         $categories = Category::where('category_id', '=', $category->id)->get();
         $parameters = Parameter::all();
         $items = Item::where('category_id', '=', $category->id)->get();

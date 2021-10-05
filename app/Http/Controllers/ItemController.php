@@ -57,6 +57,10 @@ class ItemController extends Controller
             $item->category_id = $request->category_id;
             $item->discount = $request->discount;
             $item->manufacturer = $request->manufacturer;
+            $item->status = 0;
+            if(isset($request->show)) {
+            $item->status = 10;
+            }
             $item->save();
             $category= Category::find($request->category_id);
             foreach ($category->parameters as $parameter) {

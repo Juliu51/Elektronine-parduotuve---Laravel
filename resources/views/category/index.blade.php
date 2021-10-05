@@ -84,8 +84,8 @@
 <div class="korteles">
               @if (isset($item))
             @foreach ($items as $item)
-            <div class="kortele">
-              <a href="{{route('item.show',[$item, $chain[count($chain)-1]])}}">
+            <div class="kortele {{($item->status == 0) ? "disabled" : ""}}">
+              <a class="{{($item->status == 0) ? "avoid-cliks" : ""}}" href="{{route('item.show',[$item, $chain[count($chain)-1]])}}">
             <div class="korteleHead">
              @if(count($item->photos) > 0)
                <div class="imgHead">
@@ -99,7 +99,7 @@
                  <p class="d-flex justify-content-center" style="color:white;">Kaina: {{$item->price}} €</p>
                  @if(!Auth::user()->isAdmin())
                  <div class=" migtukai align-middle text-center">
-                 <a class="btn btn-danger"href="">Pirkti</a>
+                 <a class="btn btn-danger {{($item->status == 0) ? "avoid-cliks" : ""}}" href="">Pirkti</a>
                  </div>
                  @endif
                  @if(Auth::user()->isAdmin())

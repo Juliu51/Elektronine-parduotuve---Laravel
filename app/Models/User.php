@@ -50,6 +50,16 @@ class User extends Authenticatable
         return false;
 
     }
+
+    public function isAdministrator()
+    {
+        if($this->permission_lvl >= 1000){
+            return true;
+        }
+        return false;
+
+    }
+
     // public function isAdminStrict()
     // {
     //     if($this->permission_lvl == 10000){
