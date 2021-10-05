@@ -12,11 +12,11 @@
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{asset("/images/items/big/".$item->photos[0]->name)}}" alt="First slide">
+                        <img class="d-block bigImg" src="{{asset("/images/items/big/".$item->photos[0]->name)}}" alt="First slide">
                       </div>
                       @foreach ($item->photos as $photo)
                       <div class="carousel-item">
-                        <img class="d-block w-100" src="{{asset("/images/items/big/".$photo->name)}}" alt="Second slide">
+                        <img class="d-block bigImg" src="{{asset("/images/items/big/".$photo->name)}}" alt="Second slide">
                       </div>
 @endforeach
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -40,6 +40,18 @@
 <p class="justify-content-center text-white">Likutis: {{$item->quantity}} 🚚</p>
 <p class="justify-content-center text-white">Kaina: {{$item->price}} €</p>
 <a class="btn btn-danger"href="">Pirkti</a>
+@if(Auth::user()->isAdmin())
+<p>
+<form action="{{route('item.softDelete', $item)}}" method="post">
+  @csrf
+  @if ($item->status == 10)
+  <button class="btn btn-secondary" type="submit" name="softDelete" value="1">Nerodyti Prekes</button>
+  @else 
+  <button class="btn btn-warning" type="submit" name="softDelete" value="0">Rodyti Preke</button>
+@endif
+</form>
+</p>
+@endif
     </div>
     </div>
 </div>

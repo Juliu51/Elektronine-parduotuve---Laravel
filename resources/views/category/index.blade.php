@@ -85,8 +85,12 @@
               @if (isset($item))
             @foreach ($items as $item)
             <div class="kortele {{($item->status == 0) ? "disabled" : ""}}">
-              <a class="{{($item->status == 0) ? "avoid-cliks" : ""}}" href="{{route('item.show',[$item, $chain[count($chain)-1]])}}">
-            <div class="korteleHead">
+              @if(!Auth::user()->isAdmin())
+              <a class="{{($item->status == 0) ? "avoid-cliks" : ""}}" href="{{route('item.show',[$item->id*31, $chain[count($chain)-1]])}}">
+            @else
+            <a href="{{route('item.show',[$item->id*31, $chain[count($chain)-1]])}}"> 
+              @endif
+                <div class="korteleHead">
              @if(count($item->photos) > 0)
                <div class="imgHead">
                  <img class="smallImg" src="{{asset("/images/items/small/".$item->photos[0]->name)}}" alt=""></div>
@@ -95,8 +99,12 @@
                  @endif
                  <p class="d-flex justify-content-center">{{$item->name}}</p>
                  <p class=" p1">Gamintojas: {{$item->manufacturer}}</p>
-                 <p class=" p1">Likutis: {{$item->quantity}} 🚚</p>
-                 <p class="d-flex justify-content-center" style="color:white;">Kaina: {{$item->price}} €</p>
+                 <p class=" p1">Likutis: {{$item->quantity}} 🚚 
+                  @if ($item->discount > 0) 
+                  <span class="floats">{{$item->discountPrice()}} €</span>
+                @endif
+              </p>
+                <p class="d-flex justify-content-center" style="color:white;">Kaina:   <span class=" {{($item->discount > 0) ? " akcija" : ""}} "> {{$item->price}}</span> €</p>
                  @if(!Auth::user()->isAdmin())
                  <div class=" migtukai align-middle text-center">
                  <a class="btn btn-danger {{($item->status == 0) ? "avoid-cliks" : ""}}" href="">Pirkti</a>

@@ -150,7 +150,7 @@
             @yield('content')
         </main>
     </div>
-    <footer class="text-center text-white fixed-bottom footer shadow bg-body rounded">
+    <footer class="text-center text-white  footer shadow bg-body rounded">
   <!-- Grid container -->
   <!-- Copyright -->
   <div class="text-center p-3">

@@ -18,4 +18,14 @@ class Item extends Model
         return $this->hasMany(Photo::class);
         
     }
+
+
+public function discountPrice() {
+    return $this->round_up ($this->price -($this->price * ($this->discount / 100)), 2);
+}
+
+public function round_up ($value, $precision) {
+    $pow = pow (10, $precision) ;
+    return (ceil ($pow * $value) + ceil ($pow * $value - ceil ($pow * $value ))) / $pow;
+}
 }

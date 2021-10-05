@@ -98,12 +98,22 @@ class ItemController extends Controller
      * @param  \App\Models\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function show(Item $item, Category $category)
-    {
-       
+    public function show($id, Category $category)
+    {  
+       $item = Item::find($id/31);
       return view('item.show', ['item' => $item, 'category' => $category]);
     }
 
+    public function softDelete(Request $request,Item $item)
+    {  
+        if($request ->softDelete == 1){
+            $item->status = 0;
+        } else {
+            $item->status = 10;
+        }
+        $item->save();
+      return redirect()->back();
+    }
     /**
      * Show the form for editing the specified resource.
      *
