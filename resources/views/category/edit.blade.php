@@ -13,27 +13,28 @@
                       <label>Pavadinimas</label>
                       <input type="text" name="name" value="{{$category->name}}" class="form-control">
                   </div>
-                  @if ($category->category_id !== NULL) 
+
                   <div class="form-group">
                      <label>Kuriai Kategorijai priskirti?</label>
                      <select class="custom-select" name="category_id">
-                     
+                     <option value="0">Pagrindine kategorija</option>
                         @foreach ($categories as $categoriesOne)
-                            <option value="{{$categoriesOne->id}}">{{$categoriesOne->name}}</option>
+                            <option value="{{$categoriesOne->id}}" @if($categoriesOne->id == $category->category_id) selected="selected" @endif> {{$categoriesOne->name}}</option>
                         @endforeach
+
                      </select>
                  </div>
-                
+
                  <div class="form-group">
                     <label>Kategorijos parametrai</label>
                     <select class="custom-select" name="parameters[]" multiple>
-                       
-                       @foreach ($parameters as $parameter)
-                           <option value="{{$parameter->id}}">{{$parameter->title}} | {{$parameter->data_type}}</option>
-                       @endforeach
+
+                    @foreach ($parameters as $parameter)
+<option value="{{$parameter->id}}" @if ( in_array($parameter->id,$catIds )) selected="selected" @endif>{{$parameter->title}}, {{$parameter->data_type}}</option>
+@endforeach
                     </select>
                 </div>
-                @endif
+
                   @csrf
                   <button class="btn btn-success" type="submit">EDIT</button>
                </form>

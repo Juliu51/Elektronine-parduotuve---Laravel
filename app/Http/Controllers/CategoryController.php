@@ -111,8 +111,8 @@ class CategoryController extends Controller
         foreach ($categoryParameters as $ctParam) {
             $ctParams[] = $ctParam->parameter_id;
         }
-
-        return view('category.edit', ['category' => $category, 'parameters' => $parameters, 'categories' => $categories, 'ctParams' => $ctParams]);
+        $catIds = array_map( function($o) { return $o['id'];}, $category->parameters->toArray() );
+        return view('category.edit', ['category' => $category, 'parameters' => $parameters, 'categories' => $categories, 'ctParams' => $ctParams, 'catIds'=> $catIds]);
     }
 
     /**
