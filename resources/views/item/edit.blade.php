@@ -7,14 +7,14 @@
          <div class="card">
             <div class="card-header">Redaguoti kategorijoje</div>
             <div class="card-body">
-               <form method="POST" action="{{route('item.update', [$item])}}" >
+               <form method="POST" action="{{route('item.update', [$item])}}" enctype="multipart/form-data">
                   <div class="form-group">
                       <label>Prekes pavadinimas</label>
                       <input type="text" name="name"  class="form-control" value="{{$item->name}}">
                   </div>
                   <div class="form-group">
                       <label>Prekes gamintojas</label>
-                      <input type="text" name="manufacturer"  class="form-control" placeholder="{{$item->manufacturer}}">
+                      <input type="text" name="manufacturer"  class="form-control" placeholder="{{$item->manufacturer}}" value="{{$item->manufacturer}}">
                   </div>
                   <div class="form-group">
                       <label>Prekes Kaina</label>
@@ -34,6 +34,8 @@
                       <label>Prekes nuolaida</label>
                       <input type="number" name="discount"  class="form-control" placeholder="0%" value="{{$item->discount}}">
                   </div>
+                  
+                  
 <input type="hidden" name="item_id" value="{{$item->id}}">
 <input type="hidden" name="category_id" value="{{$category->id}}">   
             @foreach ($item->parameters as $param) 

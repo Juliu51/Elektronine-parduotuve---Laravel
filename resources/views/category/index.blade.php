@@ -81,6 +81,9 @@
                  @endif
              @endforeach
          </div>
+         <!-- @foreach($categories as $cat)
+          <p>{{$cat}}</p>
+      @endforeach -->
 <div class="korteles">
   @if (isset($item))
   @foreach ($items as $item)

@@ -14,14 +14,14 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table ->string('name');
-            $table->string('manufacturer');
-            $table->string('price');
-            $table->text('description');
-            $table->integer('quantity');
-            $table->integer('discount');
+            $table ->string('name')->nullable();
+            $table->string('manufacturer')->nullable();
+            $table->string('price')->nullable();
+            $table->text('description')->nullable();
+            $table->integer('quantity')->nullable();
+            $table->integer('discount')->nullable();
             $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }

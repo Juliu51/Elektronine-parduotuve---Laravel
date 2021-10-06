@@ -4,7 +4,11 @@
 <div class="container">
     <input type="hidden" name="item_id" value="{{$item->id}}">
 <input type="hidden" name="category_id" value="{{$category->id}}">  
-<a href="{{route('category.map',$category)}}" class="text-sm text-gray-700 dark:text-gray-500 underline">Gryzti į sąrašą</a>
+@foreach ($categories as $cat)
+
+<a href="{{route('category.map',$cat)}}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{$cat->name}} ></a>
+@endforeach
+<a href="{{route('category.map',$category)}}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{$category->name}}</a>
 <div class="PrekeContainer">
     <div class="photo">
     @if(count($item->photos) > 0)

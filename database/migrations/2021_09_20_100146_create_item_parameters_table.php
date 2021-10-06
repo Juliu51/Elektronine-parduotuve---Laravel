@@ -18,8 +18,8 @@ class CreateItemParametersTable extends Migration
             $table->string('data');
             $table->unsignedBigInteger('item_id');
             $table->unsignedBigInteger('parameter_id');
-            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
-            $table->foreign('parameter_id')->references('id')->on('parameters')->onDelete('cascade');
+            $table->foreign('item_id')->references('id')->on('items');
+            $table->foreign('parameter_id')->references('id')->on('parameters');
             // $table->primary(['item_id', 'parameter_id']);
             $table->timestamps();
         });

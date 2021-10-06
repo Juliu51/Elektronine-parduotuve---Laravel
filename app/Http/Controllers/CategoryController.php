@@ -45,6 +45,8 @@ class CategoryController extends Controller
         $categories = Category::where('category_id', '=', $category->id)->get();
         $parameters = Parameter::all();
         $items = Item::where('category_id', '=', $category->id)->get();
+        
+      
         return view('category.index', ['chain' => $_SESSION['chain'], 'categories' => $categories, 'parameters' => $parameters, 'items' => $items]);
     }
 
@@ -159,6 +161,7 @@ class CategoryController extends Controller
         }
 
         $category->delete();
+        
         return redirect()->back()->with('success_message', 'Kategorija sėkmingai pašalinta.');
     }
 }

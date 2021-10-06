@@ -11,6 +11,7 @@ use App\Models\Parameter;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 use Str;
+use Validator;
 
 class ItemController extends Controller
 {
@@ -49,6 +50,26 @@ class ItemController extends Controller
    
         public function store(Request $request, Category $category)
         {
+            $validator = Validator::make($request->all(),
+        [
+            
+            'photos[]' => ['mimes:jpg,bmp,png'],
+            'file' => ['max:50120'],
+            'attachments' => ['max:3'],
+            'photos.*' => ['mimes:jpeg,jpg,png,gif','max:5120'],
+        ],
+        [
+            'photos.*.mimes' => '*Vienas iš failų nėra nuotrauka.',
+            'photos.max' => '*Galite turėti ne daugiau 10 nuotraukų.',
+            'photos.*.max' => '*Viena nuotrauka turi neviršyti 5MB.',
+            'photos.image' => '*Visi failai turi būti nuotraukos',
+            'file' => '*Nuotraukos dydis turi neviršyti 5MB  '
+        ]);
+         if ($validator->fails()) {
+            $request->flash();
+            return redirect()->back()->withErrors($validator);
+        }
+
             $item = new Item();
             $item->name = $request->name;
             $item->price = $request->price;
@@ -100,8 +121,14 @@ class ItemController extends Controller
      */
     public function show($id, Category $category)
     {  
+       
        $item = Item::find($id/31);
-      return view('item.show', ['item' => $item, 'category' => $category]);
+       $categories = Category::where('id','=', $category->category_id)->get();
+    //    foreach($categories as $cat){
+    //    $cate = Category::where('id','=', $cat->category_id)->get();
+    //   dd($cate);
+    //    }
+      return view('item.show', ['item' => $item, 'category' => $category, 'categories' => $categories]);
     }
 
     public function softDelete(Request $request,Item $item)
@@ -149,6 +176,8 @@ class ItemController extends Controller
             $iP->data = $request->input($parameter->id);
             $iP->save();
         }
+
+       
         
 
         $category = Category::find($request->category_id);
@@ -162,9 +191,9 @@ class ItemController extends Controller
      * @param  \App\Models\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Item $item)
+    public function destroy(Item $item, Category $category)
     {
        $item->delete();
-        return redirect()->route('category.index')->with('success_message', 'Sekmingai ištrintas.');
+        return redirect()->route('category.map',[$item->category_id])->with('success_message', 'Sekmingai ištrintas.');
     }
 }
