@@ -88,7 +88,7 @@
             <div  @if ($item->status == 0) 
               class="disabled-none">
               @else
-              class="kortele {{($item->quantity == 0) ? " disabled avoid-cliks" : ""}}">
+              class="kortele {{($item->quantity == 0) ? " disabled" : ""}}">
               @endif
               @else
               <div  @if ($item->status == 0) 

@@ -38,8 +38,13 @@
 <p class="justify-content-right text-white">Gamintojas: <span style="color:red;">{{$item->manufacturer}}</span></p>
 <div class="veiksmai">
 <p class="justify-content-center text-white">Likutis: {{$item->quantity}} 🚚</p>
+@if ($item->discount > 0)
+<p class="justify-content-center text-white">Kaina:   <span class="akcija"> {{$item->price}}€</span>   <span style="font-size:30px;">{{$item->discountPrice()}} €<span></p>
+@else
 <p class="justify-content-center text-white">Kaina: {{$item->price}} €</p>
-<a class="btn btn-danger"href="">Pirkti</a>
+@endif
+<a class="btn btn-danger {{($item->quantity == 0) ? "disabled-none" : ""}}" href="">Pirkti</a>
+<p class='justify-content-center text-white'>{{($item->quantity == 0) ? "Atsiprasome šios prekes nebeturime 🚚" : ""}}</p>
 @if(Auth::user()->isAdmin())
 <p>
 <form action="{{route('item.softDelete', $item)}}" method="post">
