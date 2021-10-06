@@ -10118,6 +10118,7 @@ body,
   justify-content: center;
   align-items: center;
   margin: 1%;
+  position: relative;
 }
 .korteles .kortele a {
   text-decoration: none;
@@ -10161,6 +10162,30 @@ body,
   color: white;
   font-size: 18px;
   padding-left: 45px;
+}
+
+.ispa {
+  position: absolute;
+  top: 35%;
+  left: -5%;
+  color: red;
+  transform: rotate(-70deg);
+  font-size: 100px;
+  font-family: "Stick No Bills", sans-serif;
+}
+@media (max-width: 992px) {
+  .ispa {
+    left: 15%;
+    font-size: 100px;
+    transform: rotate(-60deg);
+  }
+}
+@media (max-width: 576px) {
+  .ispa {
+    left: 5%;
+    font-size: 80px;
+    transform: rotate(-60deg);
+  }
 }
 
 .PrekeContainer {
@@ -10246,6 +10271,10 @@ body,
 
 .disabled {
   opacity: 0.3;
+}
+
+.disabled-none {
+  display: none;
 }
 
 .floats {

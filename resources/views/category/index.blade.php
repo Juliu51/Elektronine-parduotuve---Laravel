@@ -82,15 +82,28 @@
              @endforeach
          </div>
 <div class="korteles">
-              @if (isset($item))
-            @foreach ($items as $item)
-            <div class="kortele {{($item->status == 0) ? "disabled" : ""}}">
-              @if(!Auth::user()->isAdmin())
-              <a class="{{($item->status == 0) ? "avoid-cliks" : ""}}" href="{{route('item.show',[$item->id*31, $chain[count($chain)-1]])}}">
-            @else
-            <a href="{{route('item.show',[$item->id*31, $chain[count($chain)-1]])}}"> 
+  @if (isset($item))
+  @foreach ($items as $item)
+            @if(!Auth::user()->isAdmin())
+            <div  @if ($item->status == 0) 
+              class="disabled-none">
+              @else
+              class="kortele {{($item->quantity == 0) ? " disabled avoid-cliks" : ""}}">
               @endif
-                <div class="korteleHead">
+              @else
+              <div  @if ($item->status == 0) 
+                class=" kortele disabled">
+                @else
+                class="kortele {{($item->quantity == 0) ? " disabled" : ""}}">
+                @endif
+                @endif
+                @if(!Auth::user()->isAdmin())
+                <a class="{{($item->status == 0) ? "avoid-cliks" : ""}}" href="{{route('item.show',[$item->id*31, $chain[count($chain)-1]])}}">
+                  @else
+                  <a href="{{route('item.show',[$item->id*31, $chain[count($chain)-1]])}}"> 
+                    @endif
+                    <div class="ispa {{($item->quantity !== 0) ? " disabled-none" : ""}}"> IŠPARDUOTA</div>
+                    <div class="korteleHead">
              @if(count($item->photos) > 0)
                <div class="imgHead">
                  <img class="smallImg" src="{{asset("/images/items/small/".$item->photos[0]->name)}}" alt=""></div>
@@ -107,7 +120,7 @@
                 <p class="d-flex justify-content-center" style="color:white;">Kaina:   <span class=" {{($item->discount > 0) ? " akcija" : ""}} "> {{$item->price}}</span> €</p>
                  @if(!Auth::user()->isAdmin())
                  <div class=" migtukai align-middle text-center">
-                 <a class="btn btn-danger {{($item->status == 0) ? "avoid-cliks" : ""}}" href="">Pirkti</a>
+                 <a class="btn btn-danger {{($item->quantity == 0) ? "disabled-none" : ""}}" href="">Pirkti</a>
                  </div>
                  @endif
                  @if(Auth::user()->isAdmin())

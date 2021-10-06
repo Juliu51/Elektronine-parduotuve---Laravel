@@ -19,7 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light text-white shadow bg-body rounded">
             <div class="container">
@@ -150,15 +150,15 @@
             @yield('content')
         </main>
     </div>
-    <footer class="text-center text-white  footer shadow bg-body rounded">
-  <!-- Grid container -->
-  <!-- Copyright -->
-  <div class="text-center p-3">
+    <footer class="text-center text-white  footer shadow bg-body rounded mt-auto">
+    <!-- Grid container -->
+    <!-- Copyright -->
+    <div class="text-center p-3">
     © 2021 Copyright:
     <a class="text-white" href="{{ route('category.index') }}">MegaShop.com</a>
-  </div>
-  <!-- Copyright -->
-</footer>
+    </div>
+    <!-- Copyright -->
+    </footer>
 </body>
 <script type="text/javascript" src="{{ URL::asset('js/main.js') }}"></script>
 </html>
