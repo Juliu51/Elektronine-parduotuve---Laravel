@@ -10071,7 +10071,6 @@ body,
   background-color: #343a40;
   font-family: "Hind", sans-serif;
   width: 100%;
-  height: 100%;
 }
 .Perkamiausios img {
   width: 100%;
@@ -10275,6 +10274,13 @@ body,
 
 .disabled-none {
   display: none;
+}
+
+.top {
+  font-size: 50px;
+  text-align: center;
+  font-family: "Hind", sans-serif;
+  text-shadow: 2px 2px #4d4747;
 }
 
 .floats {

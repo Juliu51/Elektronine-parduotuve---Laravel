@@ -28,8 +28,15 @@ class CategoryController extends Controller
         $categories = Category::whereNull('category_id')->get();
         $chain = [];
         $chain[] = $categories;
+       
+        $Allitems = Item::all();
+        for ($i=0; $i < 6; $i++) { 
+            $tmp[] = $Allitems[$i];
+            shuffle($tmp);
+            }
+        $Allitems = $tmp;
 
-        return view('category.index', ['categories' => $categories, 'chain' => $_SESSION['chain']]);
+        return view('category.index', ['categories' => $categories, 'chain' => $_SESSION['chain'], 'Allitems' => $Allitems]);
     }
 
     public function map(Category $category)
@@ -45,8 +52,8 @@ class CategoryController extends Controller
         $categories = Category::where('category_id', '=', $category->id)->get();
         $parameters = Parameter::all();
         $items = Item::where('category_id', '=', $category->id)->get();
-        
-      
+        $Allitems = Item::all();
+       
         return view('category.index', ['chain' => $_SESSION['chain'], 'categories' => $categories, 'parameters' => $parameters, 'items' => $items]);
     }
 

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <input type="hidden" name="item_id" value="{{$item->id}}">
-<input type="hidden" name="category_id" value="{{$category->id}}">  
+<input type="hidden" name="category_id" value="{{$category->id}}"> 
 @foreach ($categories as $cat)
 
 <a href="{{route('category.map',$cat)}}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{$cat->name}} ></a>

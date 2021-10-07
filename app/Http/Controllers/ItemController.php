@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 use Str;
 use Validator;
+use Response;
 
 class ItemController extends Controller
 {
@@ -23,6 +24,12 @@ class ItemController extends Controller
     public function index()
     {
         //
+    }
+
+    public function api()
+    {
+        return Response::json(['status' => 200,
+                                'msg' => "sveikinu,jus kreipetes i API serveri"]);
     }
 
     /**
@@ -121,14 +128,16 @@ class ItemController extends Controller
      */
     public function show($id, Category $category)
     {  
-       
+       $list = [];
        $item = Item::find($id/31);
        $categories = Category::where('id','=', $category->category_id)->get();
-    //    foreach($categories as $cat){
-    //    $cate = Category::where('id','=', $cat->category_id)->get();
-    //   dd($cate);
-    //    }
-      return view('item.show', ['item' => $item, 'category' => $category, 'categories' => $categories]);
+       $list[] = $categories;
+    //   foreach($categories as $cat){
+    //     $categories = Category::where('id','=', $cat->category_id)->get();
+    //     $list[] = $categories;
+    //   }
+      
+      return view('item.show', ['item' => $item, 'category' => $category, 'categories' => $categories, 'list' => $list]);
     }
 
     public function softDelete(Request $request,Item $item)

@@ -63,7 +63,73 @@
       </div>
     </div>
   </div>
+  
+  <p class="top justify-content-center text-white">TOP PERKAMIAUSIOS </p>
 </div>
+ 
+  <div class="korteles">
+    @foreach ($Allitems as $item)
+              @if(!Auth::user()->isAdmin())
+              <div  @if ($item->status == 0) 
+                class="disabled-none">
+                @else
+                class="kortele {{($item->quantity == 0) ? " disabled" : ""}}">
+                @endif
+                @else
+                <div  @if ($item->status == 0) 
+                  class=" kortele disabled">
+                  @else
+                  class="kortele {{($item->quantity == 0) ? " disabled" : ""}}">
+                  @endif
+                  @endif
+                  @if(!Auth::user()->isAdmin())
+                <a class="{{($item->status == 0) ? "avoid-cliks" : ""}}" href="{{route('item.show',[$item->id*31, $item->category_id])}}">
+                  @else
+                  <a href="{{route('item.show',[$item->id*31, $item->category_id])}}"> 
+                    @endif
+
+                      <div class="ispa {{($item->quantity !== 0) ? " disabled-none" : ""}}"> IŠPARDUOTA</div>
+                      <div class="korteleHead">
+               @if(count($item->photos) > 0)
+                 <div class="imgHead">
+                   <img class="smallImg" src="{{asset("/images/items/small/".$item->photos[0]->name)}}" alt=""></div>
+                   @else
+                   <div class="imgHead"> <img class="smallImg" src="{{asset("/images/icons/Default.jpg")}}" alt=""> </div>
+                   @endif
+                   <p class="d-flex justify-content-center">{{$item->name}}</p>
+                   <p class=" p1">Gamintojas: {{$item->manufacturer}}</p>
+                   <p class=" p1">Likutis: {{$item->quantity}} 🚚 
+                    @if ($item->discount > 0) 
+                    <span class="floats">{{$item->discountPrice()}} €</span>
+                  @endif
+                </p>
+                  <p class="d-flex justify-content-center" style="color:white;">Kaina:   <span class=" {{($item->discount > 0) ? " akcija" : ""}} "> {{$item->price}}</span> €</p>
+                   @if(!Auth::user()->isAdmin())
+                   <div class=" migtukai align-middle text-center">
+                   <a class="btn btn-danger {{($item->quantity == 0) ? "disabled-none" : ""}}" href="">Pirkti</a>
+                   </div>
+                   @endif
+                   @if(Auth::user()->isAdmin())
+                <div class=" migtukai align-middle text-center">
+                  <a class="btn btn-primary" href="{{route('item.edit', [$item, $item->category_id])}}">EDIT</a>
+                  <form style="display: inline-block" method="POST" action="{{route('item.destroy', [$item])}}">
+                      @csrf
+                      <button class="btn btn-danger" type="submit">DELETE</button>
+                    </form>
+        </div>
+            @endif
+  
+            </div>
+          </a>
+  </div>
+              @endforeach
+  </div>
+ 
+
+ 
+  
+ 
+
 @else
 <div class="Perkamiausios">
   <div class="headas">
