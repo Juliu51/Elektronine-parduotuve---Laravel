@@ -2124,6 +2124,8 @@ var app = new Vue({
   el: '#app'
 });
 
+__webpack_require__(/*! ./test */ "./resources/js/test.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -2167,6 +2169,59 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/test.js":
+/*!******************************!*\
+  !*** ./resources/js/test.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+console.log("sveiki"); // }
+
+var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
+    axios = _require["default"]; // console.log(window.location.href.includes("map")," vaikstau po kategorijas");
+// console.log(window.location.href.includes("show")," esu prekeje");
+
+
+if (document.getElementById("searchBar")) {
+  searchBar.addEventListener('keyup', sbr);
+}
+
+function sbr() {
+  var input = document.getElementById('searchBar');
+  var timeout = null;
+  searchBar.addEventListener('keyup', function (e) {
+    clearTimeout(timeout);
+    timeout = setTimeout(function () {
+      console.log('Value:', searchBar.value);
+      var txt = searchBar.value;
+      axios.post(urlSearchBar, {
+        searchBar: searchBar.value
+      }).then(function (response) {
+        console.log(response.data.items);
+        var drpDwn = document.getElementById("myDropdown");
+        var HTML = '<input type="text" placeholder="Search.." id="searchBar">';
+        response.data.items.forEach(function (item) {
+          HTML += ' <a href="#">' + item["name"] + '</a>';
+        });
+        drpDwn.innerHTML = HTML;
+        document.getElementById('searchBar').value = txt;
+        document.getElementById('searchBar').focus();
+        sbr();
+      }); // console.log('Value:', searchBar.value);
+    }, 700);
+  });
+}
+
+document.getElementById('myDropdown').addEventListener('focusout', function () {
+  document.getElementById("myDropdown").innerHTML = '<input type="text" placeholder="Search.." id="searchBar">';
+});
+document.getElementById('myDropdown').addEventListener('mouseout', function () {
+  document.getElementById("myDropdown").innerHTML = '<input type="text" placeholder="Search.." id="searchBar">'; //jeigu pele x/y ne ant inputo IR ne ant kazkurio childElement, tik tada isvalyti
+});
+$('.carousel').carousel();
 
 /***/ }),
 

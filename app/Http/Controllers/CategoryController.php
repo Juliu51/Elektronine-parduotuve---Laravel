@@ -56,7 +56,6 @@ class CategoryController extends Controller
         $zz = [];
         $ss = Category::where('category_id', '=', $category->id)->get();
         foreach ($ss as $s){
-            
             $zz[] = Item::where('category_id', '=', $s->id)->get();
         }
         return view('category.index', ['chain' => $_SESSION['chain'], 'categories' => $categories, 'parameters' => $parameters, 'items' => $items, 'zz' => $zz]);
