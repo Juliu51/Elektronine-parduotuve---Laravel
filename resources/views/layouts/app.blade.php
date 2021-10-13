@@ -8,7 +8,6 @@
     <title>{{ config('app.name', 'MegaShop') }}</title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -24,7 +23,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light text-white shadow bg-body rounded">
             <div class="container">
-                <a class="navbar-brand text-danger logo" href="{{ route('category.index') }}">
+                <a class="navbar-brand text-danger logo" href="{{ route('home') }}">
                    MegaShop
                 </a>
                 <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -39,11 +38,12 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto text-white">
-                        
                         <!-- Authentication Links -->
+                        @if(Auth::user())
                         <li class="nav-item text-white">
                             <a class="nav-link text-white navName" href="{{ route('category.index') }}">Pagrindinis</a>
                         </li>
+                        @endif
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">

@@ -1,11 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ParameterController;
-use App\Http\Controllers\CategoryParameterController;
-use App\Http\Controllers\ItemParameterController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,22 +14,15 @@ use App\Http\Controllers\ItemParameterController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('home');
 });
-
-Auth::routes(['register' => false]);
-
-
-
-
+Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-
-Route::group(['prefix' => 'categories'], function(){
+Route::group(['prefix' => 'categories'], function () {
     Route::get('', [CategoryController::class, 'index'])->name('category.index');
     Route::get('map/{category}', [CategoryController::class, 'map'])->name('category.map');
     Route::get('create/{id}', [CategoryController::class, 'create'])->name('category.create');
@@ -39,10 +31,9 @@ Route::group(['prefix' => 'categories'], function(){
     Route::post('update/{category}', [CategoryController::class, 'update'])->name('category.update');
     Route::post('delete/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
     Route::get('show/{category}', [CategoryController::class, 'show'])->name('category.show');
- });
+});
 
-
- Route::group(['prefix' => 'parameters'], function(){
+Route::group(['prefix' => 'parameters'], function () {
     Route::get('', [ParameterController::class, 'index'])->name('parameter.index');
     Route::get('map/{parameter}', [ParameterController::class, 'map'])->name('parameter.map');
     Route::get('create', [ParameterController::class, 'create'])->name('parameter.create');
@@ -51,9 +42,9 @@ Route::group(['prefix' => 'categories'], function(){
     Route::post('update/{parameter}', [ParameterController::class, 'update'])->name('parameter.update');
     Route::post('delete/{parameter}', [ParameterController::class, 'destroy'])->name('parameter.destroy');
     Route::get('show/{parameter}', [ParameterController::class, 'show'])->name('parameter.show');
- });
+});
 
- Route::group(['prefix' => 'items'], function(){
+Route::group(['prefix' => 'items'], function () {
     Route::get('', [ItemController::class, 'index'])->name('item.index');
     Route::get('map/{item}', [ItemController::class, 'map'])->name('item.map');
     Route::get('create/{category}', [ItemController::class, 'create'])->name('item.create');
@@ -63,7 +54,7 @@ Route::group(['prefix' => 'categories'], function(){
     Route::post('delete/{item}', [ItemController::class, 'destroy'])->name('item.destroy');
     Route::get('show/{id}&{category}', [ItemController::class, 'show'])->name('item.show');
     Route::post('softDelete/{item}', [ItemController::class, 'softDelete'])->name('item.softDelete');
-    
- });
 
- Route::post('searchBar', [ItemController::class, 'searchBar'])->name('item.searchBar');
+});
+
+Route::post('searchBar', [ItemController::class, 'searchBar'])->name('item.searchBar');
