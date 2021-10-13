@@ -80,12 +80,14 @@ body,
         font-size: 56px;
         text-align: center;
         padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.329);
     }
 }
 .chainHead {
     margin: 15px 0px;
     padding-left: 15px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.329);
+    
     .chain {
         font-family: "Hind", sans-serif;
         color: white;

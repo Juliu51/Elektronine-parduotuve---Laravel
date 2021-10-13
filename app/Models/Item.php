@@ -78,7 +78,6 @@ public function cards() {
             $HTML.= '<div class=" migtukai align-middle text-center">
         <a class="btn btn-primary" href="'.route('item.edit', [$this, $this->category_id]).'">EDIT</a>
         <form style="display: inline-block" method="POST" action="'.route('item.destroy', [$this]).'">
-            @csrf
             <button class="btn btn-danger" type="submit">DELETE</button>
           </form>
 </div>';
