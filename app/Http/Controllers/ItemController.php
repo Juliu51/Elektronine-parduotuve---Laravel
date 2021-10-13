@@ -17,6 +17,10 @@ use Response;
 
 class ItemController extends Controller
 {
+    public function __construct()
+    {
+        session_start();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -137,13 +141,7 @@ class ItemController extends Controller
        $list = [];
        $item = Item::find($id/31);
        $categories = Category::where('id','=', $category->category_id)->get();
-       $list[] = $categories;
-    //   foreach($categories as $cat){
-    //     $categories = Category::where('id','=', $cat->category_id)->get();
-    //     $list[] = $categories;
-    //   }
-      
-      return view('item.show', ['item' => $item, 'category' => $category, 'categories' => $categories, 'list' => $list]);
+      return view('item.show', ['item' => $item, 'category' => $category, 'categories' => $_SESSION['chain'], 'list' => $list]);
     }
 
     public function softDelete(Request $request,Item $item)
