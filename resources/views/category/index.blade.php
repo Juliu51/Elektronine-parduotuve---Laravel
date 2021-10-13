@@ -50,6 +50,7 @@
 <div class="col-12 col-lg-9">
 @if (count($chain)== 0)
 <div class="Perkamiausios">
+  <div id="searchas" class="searchas"></div>
   <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -63,68 +64,20 @@
       </div>
     </div>
   </div>
-  
   <p class="top justify-content-center text-white">TOP PERKAMIAUSIOS </p>
 </div>
- 
-  <div class="korteles">
-    @foreach ($Allitems as $item)
-              @if(!Auth::user()->isAdmin())
-              <div  @if ($item->status == 0) 
-                class="disabled-none">
-                @else
-                class="kortele {{($item->quantity == 0) ? " disabled" : ""}}">
-                @endif
-                @else
-                <div  @if ($item->status == 0) 
-                  class=" kortele disabled">
-                  @else
-                  class="kortele {{($item->quantity == 0) ? " disabled" : ""}}">
-                  @endif
-                  @endif
-                  @if(!Auth::user()->isAdmin())
-                <a class="{{($item->status == 0) ? "avoid-cliks" : ""}}" href="{{route('item.show',[$item->id*31, $item->category_id])}}">
-                  @else
-                  <a href="{{route('item.show',[$item->id*31, $item->category_id])}}"> 
-                    @endif
 
-                      <div class="ispa {{($item->quantity !== 0) ? " disabled-none" : ""}}"> IŠPARDUOTA</div>
-                      <div class="korteleHead">
-               @if(count($item->photos) > 0)
-                 <div class="imgHead">
-                   <img class="smallImg" src="{{asset("/images/items/small/".$item->photos[0]->name)}}" alt=""></div>
-                   @else
-                   <div class="imgHead"> <img class="smallImg" src="{{asset("/images/icons/Default.jpg")}}" alt=""> </div>
-                   @endif
-                   <p class="d-flex justify-content-center">{{$item->name}}</p>
-                   <p class=" p1">Gamintojas: {{$item->manufacturer}}</p>
-                   <p class=" p1">Likutis: {{$item->quantity}} 🚚 
-                    @if ($item->discount > 0) 
-                    <span class="floats">{{$item->discountPrice()}} €</span>
-                  @endif
-                </p>
-                  <p class="d-flex justify-content-center" style="color:white;">Kaina:   <span class=" {{($item->discount > 0) ? " akcija" : ""}} "> {{$item->price}}</span> €</p>
-                   @if(!Auth::user()->isAdmin())
-                   <div class=" migtukai align-middle text-center">
-                   <a class="btn btn-danger {{($item->quantity == 0) ? "disabled-none" : ""}}" href="">Pirkti</a>
-                   </div>
-                   @endif
-                   @if(Auth::user()->isAdmin())
-                <div class=" migtukai align-middle text-center">
-                  <a class="btn btn-primary" href="{{route('item.edit', [$item, $item->category_id])}}">EDIT</a>
-                  <form style="display: inline-block" method="POST" action="{{route('item.destroy', [$item])}}">
-                      @csrf
-                      <button class="btn btn-danger" type="submit">DELETE</button>
-                    </form>
-        </div>
-            @endif
-            </div>
-          </a>
-  </div>
+<!-- 
+ //kortelems parodyti main puslapi top 6 perkamausius random -->
+
+  <div class="korteles">
+              @foreach ($Allitems as $item)
+                              {!!$item->cards()!!}
               @endforeach
   </div>
 @else
 <div class="Perkamiausios">
+  <div id="searchas" class="searchas"></div>
   <div class="headas">
             <h1 class="CatUniqName">{{(count($chain) > 0)?$chain[count($chain)-1]->name :""}}</h1>
         </div>
@@ -143,127 +96,35 @@
          <!-- @foreach($categories as $cat)
           <p>{{$cat}}</p>
       @endforeach -->
-      
-<div class="korteles">
-  @if (isset($item))
-  @foreach ($items as $item)
-            @if(!Auth::user()->isAdmin())
-            <div  @if ($item->status == 0) 
-              class="disabled-none">
-              @else
-              class="kortele {{($item->quantity == 0) ? " disabled" : ""}}">
-              @endif
-              @else
-              <div  @if ($item->status == 0) 
-                class=" kortele disabled">
-                @else
-                class="kortele {{($item->quantity == 0) ? " disabled" : ""}}">
-                @endif
-                @endif
-                @if(!Auth::user()->isAdmin())
-                <a class="{{($item->status == 0) ? "avoid-cliks" : ""}}" href="{{route('item.show',[$item->id*31, $chain[count($chain)-1]])}}">
-                  @else
-                  <a href="{{route('item.show',[$item->id*31, $chain[count($chain)-1]])}}"> 
-                    @endif
-                    <div class="ispa {{($item->quantity !== 0) ? " disabled-none" : ""}}"> IŠPARDUOTA</div>
-                    <div class="korteleHead">
-             @if(count($item->photos) > 0)
-               <div class="imgHead">
-                 <img class="smallImg" src="{{asset("/images/items/small/".$item->photos[0]->name)}}" alt=""></div>
-                 @else
-                 <div class="imgHead"> <img class="smallImg" src="{{asset("/images/icons/Default.jpg")}}" alt=""> </div>
-                 @endif
-                 <p class="d-flex justify-content-center">{{$item->name}}</p>
-                 <p class=" p1">Gamintojas: {{$item->manufacturer}}</p>
-                 <p class=" p1">Likutis: {{$item->quantity}} 🚚 
-                  @if ($item->discount > 0) 
-                  <span class="floats">{{$item->discountPrice()}} €</span>
-                @endif
-              </p>
-                <p class="d-flex justify-content-center" style="color:white;">Kaina:   <span class=" {{($item->discount > 0) ? " akcija" : ""}} "> {{$item->price}}</span> €</p>
-                 @if(!Auth::user()->isAdmin())
-                 <div class=" migtukai align-middle text-center">
-                 <a class="btn btn-danger {{($item->quantity == 0) ? "disabled-none" : ""}}" href="">Pirkti</a>
-                 </div>
-                 @endif
-                 @if(Auth::user()->isAdmin())
-              <div class=" migtukai align-middle text-center">
-                <a class="btn btn-primary" href="{{route('item.edit',[$item,$chain[count($chain)-1]])}}">EDIT</a>
-                <form style="display: inline-block" method="POST" action="{{route('item.destroy', [$item])}}">
-                    @csrf
-                    <button class="btn btn-danger" type="submit">DELETE</button>
-                  </form>
-      </div>
-          @endif
-          </div>
-</div>
+
+<!-- //korteles parodyti unikalios kategorijos prekes    -->
+
+            <div class="korteles">
+        @if (isset($item))
+            @foreach ($items as $item)
+                              {!!$item->cards()!!}
             @endforeach
+            </div>
 </div>
-</div>
-@else 
+    @else 
         @endif
 
+<!-- //korteles parodyti kas yra kategorijose visos prekems// -->
+
         <div class="korteles">
-     @foreach ($zz as $items)
-@foreach($items as $item)
-              @if(!Auth::user()->isAdmin())
-              <div  @if ($item->status == 0) 
-                class="disabled-none">
-                @else
-                class="kortele {{($item->quantity == 0) ? " disabled" : ""}}">
-                @endif
-                @else
-                <div  @if ($item->status == 0) 
-                  class=" kortele disabled">
-                  @else
-                  class="kortele {{($item->quantity == 0) ? " disabled" : ""}}">
-                  @endif
-                  @endif
-                  @if(!Auth::user()->isAdmin())
-                <a class="{{($item->status == 0) ? "avoid-cliks" : ""}}" href="{{route('item.show',[$item->id*31, $item->category_id])}}">
-                  @else
-                  <a href="{{route('item.show',[$item->id*31, $item->category_id])}}"> 
-                    @endif
-                      <div class="ispa {{($item->quantity !== 0) ? " disabled-none" : ""}}"> IŠPARDUOTA</div>
-                      <div class="korteleHead">
-               @if(count($item->photos) > 0)
-                 <div class="imgHead">
-                   <img class="smallImg" src="{{asset("/images/items/small/".$item->photos[0]->name)}}" alt=""></div>
-                   @else
-                   <div class="imgHead"> <img class="smallImg" src="{{asset("/images/icons/Default.jpg")}}" alt=""> </div>
-                   @endif
-                   <p class="d-flex justify-content-center">{{$item->name}}</p>
-                   <p class=" p1">Gamintojas: {{$item->manufacturer}}</p>
-                   <p class=" p1">Likutis: {{$item->quantity}} 🚚 
-                    @if ($item->discount > 0) 
-                    <span class="floats">{{$item->discountPrice()}} €</span>
-                  @endif
-                </p>
-                  <p class="d-flex justify-content-center" style="color:white;">Kaina:   <span class=" {{($item->discount > 0) ? " akcija" : ""}} "> {{$item->price}}</span> €</p>
-                   @if(!Auth::user()->isAdmin())
-                   <div class=" migtukai align-middle text-center">
-                   <a class="btn btn-danger {{($item->quantity == 0) ? "disabled-none" : ""}}" href="">Pirkti</a>
-                   </div>
-                   @endif
-                   @if(Auth::user()->isAdmin())
-                <div class=" migtukai align-middle text-center">
-                  <a class="btn btn-primary" href="{{route('item.edit', [$item, $item->category_id])}}">EDIT</a>
-                  <form style="display: inline-block" method="POST" action="{{route('item.destroy', [$item])}}">
-                      @csrf
-                      <button class="btn btn-danger" type="submit">DELETE</button>
-                    </form>
-        </div>
-            @endif
-  
-            </div>
-          </a>
-  </div>
+              @foreach ($zz as $items)
+              @foreach($items as $item)
+                            {!!$item->cards()!!}
               @endforeach
               @endforeach
-  </div>
+       </div>
 
         @endif
 </div>
 </a>
 </div>
 @endsection
+<script>
+  let urlSearchBar = "{{route('item.searchBar')}}";
+  let itemShow = "{{route('item.show',[1,1])}}";
+</script> 

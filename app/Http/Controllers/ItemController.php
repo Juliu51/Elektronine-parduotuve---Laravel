@@ -26,10 +26,15 @@ class ItemController extends Controller
         //
     }
 
-    public function api()
+    public function searchBar(Request $request)
     {
-        return Response::json(['status' => 200,
-                                'msg' => "sveikinu,jus kreipetes i API serveri"]);
+        $items = Item::where('name','like','%'.$request->searchBar.'%')->get();
+       return Response::json([
+           'status' => 200,
+           'msg' => "sveikinu, jūs kreipėtės į serverį per API ir gavote atsakymą is POST",
+           'searchBar' => $request->searchBar,
+           'items' => $items
+       ]);
     }
 
     /**

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div id="showItem"></div>
 <div class="container">
     <input type="hidden" name="item_id" value="{{$item->id}}">
 <input type="hidden" name="category_id" value="{{$category->id}}"> 

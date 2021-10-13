@@ -2178,49 +2178,44 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
   \******************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-console.log("sveiki"); // }
+console.log("sveiki"); // if (document.getElementById("showItem")) {
+//     console.log("sveiki");
+// }
 
-var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
-    axios = _require["default"]; // console.log(window.location.href.includes("map")," vaikstau po kategorijas");
-// console.log(window.location.href.includes("show")," esu prekeje");
-
-
-if (document.getElementById("searchBar")) {
-  searchBar.addEventListener('keyup', sbr);
+function searchas() {
+  var HTML = "";
+  var searchas = document.querySelector(".searchas");
+  HTML = "<div class=\"dropdown\">\n            <div id=\"myDropdown\" class=\"dropdown-content show\">\n              <input type=\"text\" name=\"serach\" placeholder=\"Search..\" id=\"searchBar\" autocomplete=\"off\">\n              <div id=\"lines\"></div>\n            </div>\n          </div>";
+  return searchas.innerHTML = HTML;
 }
 
-function sbr() {
-  var input = document.getElementById('searchBar');
-  var timeout = null;
+searchas();
+
+var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
+    axios = _require["default"];
+
+var drpDwn = document.getElementById("lines");
+var searchBar = document.getElementById("searchBar");
+
+if (searchBar) {
   searchBar.addEventListener('keyup', function (e) {
+    var timeout = null;
     clearTimeout(timeout);
     timeout = setTimeout(function () {
-      console.log('Value:', searchBar.value);
       var txt = searchBar.value;
       axios.post(urlSearchBar, {
         searchBar: searchBar.value
       }).then(function (response) {
-        console.log(response.data.items);
-        var drpDwn = document.getElementById("myDropdown");
-        var HTML = '<input type="text" placeholder="Search.." id="searchBar">';
+        var HTML = '';
         response.data.items.forEach(function (item) {
-          HTML += ' <a href="#">' + item["name"] + '</a>';
+          HTML += ' <a href="' + itemShow.substring(0, itemShow.length - 7) + +item['id'] * 31 + "&" + item['category_id'] + '">' + item["name"] + '</a>';
         });
         drpDwn.innerHTML = HTML;
-        document.getElementById('searchBar').value = txt;
-        document.getElementById('searchBar').focus();
-        sbr();
-      }); // console.log('Value:', searchBar.value);
+      });
     }, 700);
   });
 }
 
-document.getElementById('myDropdown').addEventListener('focusout', function () {
-  document.getElementById("myDropdown").innerHTML = '<input type="text" placeholder="Search.." id="searchBar">';
-});
-document.getElementById('myDropdown').addEventListener('mouseout', function () {
-  document.getElementById("myDropdown").innerHTML = '<input type="text" placeholder="Search.." id="searchBar">'; //jeigu pele x/y ne ant inputo IR ne ant kazkurio childElement, tik tada isvalyti
-});
 $('.carousel').carousel();
 
 /***/ }),

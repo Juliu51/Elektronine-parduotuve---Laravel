@@ -65,3 +65,5 @@ Route::group(['prefix' => 'categories'], function(){
     Route::post('softDelete/{item}', [ItemController::class, 'softDelete'])->name('item.softDelete');
     
  });
+
+ Route::post('searchBar', [ItemController::class, 'searchBar'])->name('item.searchBar');
