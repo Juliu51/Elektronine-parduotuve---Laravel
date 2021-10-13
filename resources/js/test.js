@@ -7,9 +7,9 @@ function searchas() {
     
      HTML = `<div class="dropdown">
      <div id="myDropdown" class="dropdown-content show">
-     <input type="text" class="paieska" name="serach" placeholder="Search.." id="searchBar" autocomplete="off">
+     <input type="text" class="paieska" name="serach" placeholder="Pavadinimas.." id="searchBar" autocomplete="off">
      <div" class="line" id="lines"></div>
-     <div class="prekiuPaieska">Prekių paieška</div>
+     <div class="prekiuPaieska">← Prekių paieška</div>
             </div>
           </div>`;
     return searchas.innerHTML = HTML;

@@ -2185,7 +2185,7 @@ console.log("sveiki"); // if (document.getElementById("showItem")) {
 function searchas() {
   var HTML = "";
   var searchas = document.querySelector(".searchas");
-  HTML = "<div class=\"dropdown\">\n     <div id=\"myDropdown\" class=\"dropdown-content show\">\n     <input type=\"text\" class=\"paieska\" name=\"serach\" placeholder=\"Search..\" id=\"searchBar\" autocomplete=\"off\">\n     <div\" class=\"line\" id=\"lines\"></div>\n     <div class=\"prekiuPaieska\">Preki\u0173 paie\u0161ka</div>\n            </div>\n          </div>";
+  HTML = "<div class=\"dropdown\">\n     <div id=\"myDropdown\" class=\"dropdown-content show\">\n     <input type=\"text\" class=\"paieska\" name=\"serach\" placeholder=\"Pavadinimas..\" id=\"searchBar\" autocomplete=\"off\">\n     <div\" class=\"line\" id=\"lines\"></div>\n     <div class=\"prekiuPaieska\">\u2190 Preki\u0173 paie\u0161ka</div>\n            </div>\n          </div>";
   return searchas.innerHTML = HTML;
 }
 
