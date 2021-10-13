@@ -6,9 +6,10 @@ function searchas() {
     let searchas = document.querySelector(".searchas");
     
      HTML = `<div class="dropdown">
-            <div id="myDropdown" class="dropdown-content show">
-              <input type="text" name="serach" placeholder="Search.." id="searchBar" autocomplete="off">
-              <div id="lines"></div>
+     <div id="myDropdown" class="dropdown-content show">
+     <input type="text" class="paieska" name="serach" placeholder="Search.." id="searchBar" autocomplete="off">
+     <div" class="line" id="lines"></div>
+     <div class="prekiuPaieska">Prekių paieška</div>
             </div>
           </div>`;
     return searchas.innerHTML = HTML;
@@ -33,7 +34,7 @@ searchas();
                    
                     let HTML ='';
                     response.data.items.forEach(item => {
-                        HTML += ' <a href="'+itemShow.substring(0, itemShow.length - 7)+ +item['id']*31+ "&" +item['category_id']+'">'+item["name"]+'</a>';
+                        HTML += '<a href="'+itemShow.substring(0, itemShow.length - 7)+ +item['id']*31+ "&" +item['category_id']+'">'+item["name"]+'</a>';
                     });
                     drpDwn.innerHTML = HTML;                    
                 });

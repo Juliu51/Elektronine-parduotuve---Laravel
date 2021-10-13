@@ -49,7 +49,7 @@
   </div>
 <div class="col-12 col-lg-9">
 @if (count($chain)== 0)
-<div class="Perkamiausios">
+<div class="Perkamiausios ">
   <div id="searchas" class="searchas"></div>
   <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">

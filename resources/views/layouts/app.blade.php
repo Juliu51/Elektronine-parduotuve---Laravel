@@ -39,6 +39,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto text-white">
+                        
                         <!-- Authentication Links -->
                         <li class="nav-item text-white">
                             <a class="nav-link text-white navName" href="{{ route('category.index') }}">Pagrindinis</a>
