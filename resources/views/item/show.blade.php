@@ -2,14 +2,16 @@
 
 @section('content')
 <div id="showItem"></div>
-<div class="container">
+<div class="container marginas">
     <input type="hidden" name="item_id" value="{{$item->id}}">
 <input type="hidden" name="category_id" value="{{$category->id}}"> 
 @foreach ($categories as $cat)
-
-<a href="{{route('category.map',$cat)}}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{$cat->name}} ></a>
-@endforeach
-<a href="{{route('category.map',$category)}}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{$category->name}}</a>
+             @if(next($categories))
+                  <a class="backChain" href="{{route('category.map',$cat)}}"> {{$cat->name}} ></a>
+                 @else
+                  <a class="backChain chain-last" href="{{route('category.map',$cat)}}"> {{$cat->name}} </a>
+                 @endif
+             @endforeach
 <div class="PrekeContainer">
     <div class="photo">
     @if(count($item->photos) > 0)

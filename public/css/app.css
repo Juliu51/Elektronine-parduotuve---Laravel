@@ -10423,3 +10423,20 @@ body,
 .show {
   display: block;
 }
+
+.backChain {
+  color: white;
+  background-color: #6c757d;
+  padding: 5px;
+  text-decoration: underline;
+  border-radius: 5px;
+}
+
+.backChain:hover {
+  background-color: white;
+  color: black;
+}
+
+.marginas {
+  margin-top: 20px;
+}

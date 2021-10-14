@@ -30,7 +30,7 @@ class CategoryController extends Controller
         $chain[] = $categories;
        
         $Allitems = Item::all();
-        for ($i=0; $i < 6; $i++) { 
+        for ($i=rand(0,(count($Allitems)-7)); $i < 6; $i++) { 
             $tmp[] = $Allitems[$i];
             shuffle($tmp);
             }
@@ -52,12 +52,13 @@ class CategoryController extends Controller
         $categories = Category::where('category_id', '=', $category->id)->get();
         $parameters = Parameter::all();
         $items = Item::where('category_id', '=', $category->id)->get();
-        $Allitems = Item::all();
         $zz = [];
         $ss = Category::where('category_id', '=', $category->id)->get();
         foreach ($ss as $s){
             $zz[] = Item::where('category_id', '=', $s->id)->get();
         }
+       
+       
         return view('category.index', ['chain' => $_SESSION['chain'], 'categories' => $categories, 'parameters' => $parameters, 'items' => $items, 'zz' => $zz]);
     }
 

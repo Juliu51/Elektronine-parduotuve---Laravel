@@ -71,9 +71,11 @@
  //kortelems parodyti main puslapi top 6 perkamausius random -->
 
   <div class="korteles">
+    
               @foreach ($Allitems as $item)
                               {!!$item->cards()!!}
               @endforeach
+              
   </div>
 @else
 <div class="Perkamiausios">

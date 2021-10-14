@@ -399,3 +399,19 @@ body,
   .show {
     display: block;
   }
+
+  .backChain {
+    color: white;
+    background-color: $gray-600;
+    padding: 5px;
+    text-decoration: underline;
+    border-radius: 5px;
+  }
+    .backChain:hover{
+        background-color: white;
+        color:black;
+    }
+    .marginas {
+        margin-top: 20px;
+    }
+  
