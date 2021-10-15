@@ -189,6 +189,11 @@ class ItemController extends Controller
         }
 
         $category = Category::find($request->category_id);
+        if ($request->category_id != 0) {
+            $category->category_id = $request->category_id;
+        } else {
+            $category->category_id = null;
+        }
         return redirect()->route('category.map', [$category->id])->with('success_message', 'Sekmingai įrašytas.');
 
     }
