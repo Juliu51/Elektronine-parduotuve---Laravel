@@ -95,7 +95,8 @@ body,
     }
 }
 .korteles {
-    display: grid;
+    .houseOfCards{
+        display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
     @media (max-width: 992px) {
@@ -153,7 +154,7 @@ body,
             }
         }
     }
-}
+}}
 
 .ispa {
     position: absolute;

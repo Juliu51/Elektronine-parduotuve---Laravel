@@ -71,11 +71,11 @@
  //kortelems parodyti main puslapi top 6 perkamausius random -->
 
   <div class="korteles">
-    
+    <div class="houseOfCards" id="houseOfCards">
               @foreach ($Allitems as $item)
                               {!!$item->cards()!!}
               @endforeach
-              
+            </div>    
   </div>
 @else
 <div class="Perkamiausios">
@@ -95,6 +95,7 @@
                  @endif
              @endforeach
          </div>
+           
          <!-- @foreach($categories as $cat)
           <p>{{$cat}}</p>
       @endforeach -->
@@ -102,24 +103,31 @@
 <!-- //korteles parodyti unikalios kategorijos prekes    -->
 
             <div class="korteles">
-        @if (isset($item))
-            @foreach ($items as $item)
-                              {!!$item->cards()!!}
+              <div class="houseOfCards" id="houseOfCards">
+              @if (isset($item))
+              @foreach ($items as $item)
+              
+              
+              {!!$item->cards()!!}
             @endforeach
-            </div>
+          </div>
+          </div>
 </div>
     @else 
         @endif
 
 <!-- //korteles parodyti kas yra kategorijose visos prekems// -->
 
+
         <div class="korteles">
-              @foreach ($zz as $items)
+          @foreach ($zz as $items)
+          <div class="houseOfCards" id="houseOfCards">
               @foreach($items as $item)
                             {!!$item->cards()!!}
               @endforeach
               @endforeach
-       </div>
+            </div>
+      </div>
 
         @endif
 </div>
@@ -129,4 +137,5 @@
 <script>
   let urlSearchBar = "{{route('item.searchBar')}}";
   let itemShow = "{{route('item.show',[1,1])}}";
+  var url = '{{ URL::asset('/images/') }}';
 </script> 
