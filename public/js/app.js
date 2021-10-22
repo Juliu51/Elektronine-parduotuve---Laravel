@@ -2178,14 +2178,12 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
   \******************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-console.log("sveiki"); // if (document.getElementById("showItem")) {
-//     console.log("sveiki");
-// }
+console.log("sveiki");
 
 function searchas() {
   var HTML = "";
   var searchas = document.querySelector(".searchas");
-  HTML = "<div class=\"dropdown\">\n     <div id=\"myDropdown\" class=\"dropdown-content show\">\n     <input type=\"text\" class=\"paieska\" name=\"serach\" placeholder=\"Pavadinimas..\" id=\"searchBar\" autocomplete=\"off\">\n     <div\" class=\"line\" id=\"lines\"></div>\n     <div class=\"prekiuPaieska\">\u2190 Preki\u0173 paie\u0161ka</div>\n            </div>\n          </div>";
+  HTML = "<div class=\"dropdown\" id=\"searchDropdown\">\n     <div id=\"myDropdown\" class=\"dropdown-content show\">\n     <input type=\"text\" class=\"paieska\" name=\"serach\" placeholder=\"Pavadinimas..\" id=\"searchBar\" autocomplete=\"off\">\n     <div\" class=\"line\" id=\"lines\"></div>\n     <div class=\"prekiuPaieska\">\u2190 Preki\u0173 paie\u0161ka</div>\n            </div>\n          </div>";
 
   if (searchas != null) {
     return searchas.innerHTML = HTML;
@@ -2199,6 +2197,7 @@ searchas();
 var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
     axios = _require["default"];
 
+var searchDrp = document.getElementById("searchDropdown");
 var drpDwn = document.getElementById("lines");
 var searchBar = document.getElementById("searchBar");
 var houseOfCards = document.getElementById("houseOfCards");
@@ -2253,6 +2252,15 @@ searchBar.addEventListener('keypress', function (e) {
       console.log(HTMLCards);
       return houseOfCards.innerHTML = HTMLCards;
     });
+  }
+}); //I'm using "click" but it works with any event
+
+document.addEventListener('click', function (event) {
+  var isClickInside = searchDrp.contains(event.target);
+  drpDwn.classList.remove("dingau");
+
+  if (!isClickInside) {
+    drpDwn.classList.add("dingau");
   }
 });
 

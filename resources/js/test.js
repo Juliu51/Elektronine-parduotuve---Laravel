@@ -1,13 +1,10 @@
 console.log("sveiki");
 
-// if (document.getElementById("showItem")) {
-    //     console.log("sveiki");
-    // }
 function searchas() {
     let HTML = "";
     let searchas = document.querySelector(".searchas");
     
-     HTML = `<div class="dropdown">
+     HTML = `<div class="dropdown" id="searchDropdown">
      <div id="myDropdown" class="dropdown-content show">
      <input type="text" class="paieska" name="serach" placeholder="Pavadinimas.." id="searchBar" autocomplete="off">
      <div" class="line" id="lines"></div>
@@ -22,13 +19,14 @@ function searchas() {
 }
 searchas();
 
-    const { default: axios } = require("axios");
+const { default: axios } = require("axios");
+let searchDrp = document.getElementById("searchDropdown");
 let drpDwn = document.getElementById("lines");
 let searchBar = document.getElementById("searchBar");
 let houseOfCards = document.getElementById("houseOfCards");
 
     if (searchBar) {
-        
+      
         searchBar.addEventListener('keyup', function (e) {
             let timeout = null;
             clearTimeout(timeout);
@@ -87,7 +85,18 @@ let houseOfCards = document.getElementById("houseOfCards");
         });
         }
     });
-   
+
+ 
+
+//I'm using "click" but it works with any event
+document.addEventListener('click', function(event) {
+  var isClickInside = searchDrp.contains(event.target);
+  drpDwn.classList.remove("dingau");
+  if (!isClickInside) {
+    drpDwn.classList.add("dingau");
+  }
+});
+
 
 function generateCard(item) {
         

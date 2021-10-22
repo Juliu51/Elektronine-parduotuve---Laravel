@@ -10269,6 +10269,10 @@ body,
   font-size: 18px;
 }
 
+.dingau {
+  display: none;
+}
+
 .disabled {
   opacity: 0.3;
 }
