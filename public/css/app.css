@@ -10317,8 +10317,10 @@ body,
   box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16), 0 3px 6px rgba(255, 255, 255, 0.23);
 }
 
-.CategoryNameH:hover {
+.CategoryNameH:hover,
+.line a:hover {
   box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16), 0 3px 6px rgba(255, 255, 255, 0.23);
+  text-decoration: underline;
 }
 
 .chain:hover {
@@ -10392,7 +10394,7 @@ body,
   background-color: #6c757d;
   top: 48px;
   left: 0;
-  opacity: 0.85;
+  opacity: 0.95;
   width: 575px;
 }
 @media (max-width: 768px) {

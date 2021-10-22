@@ -2216,13 +2216,15 @@ if (searchBar) {
 
         for (var i = 0; i < response.data.items.length; i++) {
           var item = response.data.items[i];
-          HTML += '<a href="' + itemShow.substring(0, itemShow.length - 7) + +item['id'] * 31 + "&" + item['category_id'] + '">' + item["name"] + '</a>';
+          HTML += '<a href="' + itemShow.substring(0, itemShow.length - 7) + +item['id'] * 31 + "&" + item['category_id'] + '">';
 
           if (item['photos'] != null && item['photos'].length > 0) {
-            HTML += '<div class="imgHead"> <img class="smallImg" src="' + url + '/items/small/' + item['photos'][0]['name'] + '"> </div>';
+            HTML += '<img class="searchSmallImg"  src="' + url + '/items/small/' + item['photos'][0]['name'] + '">';
           } else {
-            HTML += '<div class="imgHead"> <img class="smallImg" src="' + url + '/images/icons/Default.jpg"."> </div>';
+            HTML += '<img class="searchSmallImg" src="' + url + '/images/icons/Default.jpg".">';
           }
+
+          HTML += '' + item["name"] + '</a>';
 
           if (++counter == 10) {
             // console.log(counter);
