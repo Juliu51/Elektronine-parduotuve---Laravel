@@ -49,17 +49,19 @@ class CategoryController extends Controller
             }
         }
         $_SESSION['chain'] = $tmpSs;
+        
         $categories = Category::where('category_id', '=', $category->id)->get();
         $parameters = Parameter::all();
         $items = Item::where('category_id', '=', $category->id)->get();
-        $zz = [];
+       
+        $checkItem= $category->category_id;
+
+        $unqItem = [];
         $ss = Category::where('category_id', '=', $category->id)->get();
         foreach ($ss as $s){
-            $zz[] = Item::where('category_id', '=', $s->id)->get();
+            $unqItem[] = Item::where('category_id', '=', $s->id)->get();
         }
-       
-       
-        return view('category.index', ['chain' => $_SESSION['chain'], 'categories' => $categories, 'parameters' => $parameters, 'items' => $items, 'zz' => $zz]);
+        return view('category.index', ['chain' => $_SESSION['chain'], 'categories' => $categories, 'parameters' => $parameters, 'items' => $items, 'unqItem' => $unqItem, 'checkItem' => $checkItem]);
     }
 
     /**

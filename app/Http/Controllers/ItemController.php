@@ -128,12 +128,8 @@ class ItemController extends Controller
         return redirect()->route('category.map', $request->category_id);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Item  $item
-     * @return \Illuminate\Http\Response
-     */
+     
+
     public function show($id, Category $category)
     {
         $list = [];

@@ -75,8 +75,8 @@
               @foreach ($Allitems as $item)
                               {!!$item->cards()!!}
               @endforeach
-            </div>    
-  </div>
+            </div> 
+              </div>
 @else
 <div class="Perkamiausios">
   <div id="searchas" class="searchas"></div>
@@ -100,37 +100,26 @@
           <p>{{$cat}}</p>
       @endforeach -->
 
-<!-- //korteles parodyti unikalios kategorijos prekes    -->
+<!-- //korteles parodyti unikalios kategorijos prekes arba unikales prekes kategorijoje    -->
 
-            <div class="korteles">
-              <div class="houseOfCards" id="houseOfCards">
-              @if (isset($item))
-              @foreach ($items as $item)
-              
-              
-              {!!$item->cards()!!}
-            @endforeach
-          </div>
-          </div>
-</div>
+<div class="korteles">
+  <div class="houseOfCards" id="houseOfCards">
+   @if ($checkItem !== null)
+    @foreach ($items as $item)
+    {!!$item->cards()!!}
+    @endforeach
     @else 
-        @endif
-
-<!-- //korteles parodyti kas yra kategorijose visos prekems// -->
-
-
-        <div class="korteles">
-          @foreach ($zz as $items)
-          <div class="houseOfCards" id="houseOfCards">
-              @foreach($items as $item)
-                            {!!$item->cards()!!}
-              @endforeach
-              @endforeach
-            </div>
-      </div>
-
-        @endif
+    @foreach ($unqItem as $itemq)
+    @foreach ($itemq as $item)
+    {!!$item->cards()!!}
+    @endforeach
+    @endforeach
+    @endif
+  </div>
 </div>
+
+
+    @endif
 </a>
 </div>
 @endsection
