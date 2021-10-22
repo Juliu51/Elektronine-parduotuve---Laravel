@@ -35,26 +35,12 @@ let houseOfCards = document.getElementById("houseOfCards");
                     searchBar : searchBar.value
                 })
                 .then(function(response){
-                   
                     let HTML = '';
                     let counter = 0;
-
                     for (let i = 0; i < response.data.items.length; i++) {
                         const item = response.data.items[i];
-                        HTML += '<a href="' + itemShow.substring(0, itemShow.length - 7) + +item['id'] * 31 + "&" + item['category_id'] + '">';
-                        if (item['photos'] != null && item['photos'].length > 0) {
-                            HTML += '<img class="searchSmallImg"  src="' + url + '/items/small/' + item['photos'][0]['name'] + '">';
-                        } else {
-                            HTML += '<img class="searchSmallImg" src="' + url + '/images/icons/Default.jpg".">';
-                        }
-                        HTML += ''+item["name"]+'</a>';
-                        
-                   
-                        
-                        
-                        
+                        HTML += '<a href="' + itemShow.substring(0, itemShow.length - 7) + +item['id'] * 31 + "&" + item['category_id'] + '">'+item["name"]+'</a>';
                         if(++counter == 10){
-                            // console.log(counter);
                             drpDwn.innerHTML = HTML;
                             return;
                         }
@@ -64,9 +50,6 @@ let houseOfCards = document.getElementById("houseOfCards");
             }, 700);
         });    
     }
- 
-
-
     searchBar.addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
          console.log("enterinau");
@@ -85,10 +68,6 @@ let houseOfCards = document.getElementById("houseOfCards");
         });
         }
     });
-
- 
-
-//I'm using "click" but it works with any event
 document.addEventListener('click', function(event) {
   var isClickInside = searchDrp.contains(event.target);
   drpDwn.classList.remove("dingau");
@@ -101,37 +80,8 @@ document.addEventListener('click', function(event) {
 function generateCard(item) {
         
     HTML = ``;
-//    if(users['permission_lvl'] < 10000){
-//        if (item['status'] == 0) {
-//            HTML += `<div class="disabled-none">`;
-//        } else {
            HTML += '<div class="kortele">';
-//        }
-//         if (item['quantity'] == 0) {
-//             HTML += `disabled ">`;
-//         } else {
-//             HTML += `">`;
-//     }
-//  } else {
-//        if (item['status'] == 0) {
-//            HTML += '<div class=" kortele disabled">';
-//        } else {
-//            HTML += `<div class="kortele `;
-//        }
-//            if (item['quantity'] == 0) {
-//                HTML += ` disabled " >`;
-//            } else {
-//                HTML+= `">`;
-// }
-//      }
-
-
-        // if(users['permission_lvl'] < 10000){
-        //     HTML+= `<a class=".(($this->status == 0)?" avoid-cliks " : "").'" href="'.route('item.show',[$this->id*31, $this->category_id]).'">'`;
-        // }else{
             HTML += ' <a href="'+itemShow.substring(0, itemShow.length - 7)+ +item['id']*31+ "&" +item['category_id']+' ">';
-        // }
-
 HTML += `   <div class="ispa `;
     if (item['quantity'] !== 0) {
         HTML += `disabled-none "`;
@@ -158,15 +108,6 @@ HTML += `   <div class="ispa `;
         HTML += '"';
     }
        HTML += '> '+ item['price']+' </span> €</p>';
-    // // if (permission_lvl < 10000) {
-    //     HTML += `<div class=" migtukai align-middle text-center">
-    //      <a class="btn btn-danger`;
-    //     if (item['quantity'] == 0) {
-    //         HTML += `disabled-none"`;
-    //     } else {
-    //         HTML += `"`;
-    //     }
-    // }else {
         HTML += '<div class=" migtukai align-middle text-center"> <a class="btn btn-danger"';
             HTML += 'href = "" > Pirkti </a> </div>';
         // }
